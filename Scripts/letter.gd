@@ -2,7 +2,7 @@ class_name Letter
 extends Node
 
 @onready var background: Panel = $Background
-@onready var label: Label = $Background/Letter
+@onready var label: Label = $Background/Label
 
 var letters_and_points: Dictionary = Settings.LETTERS_AND_POINTS
 var letters: Array = []
@@ -26,7 +26,7 @@ func _ready() -> void:
 # ========================
 
 func get_current_letter() -> String:
-	return current_letter	
+	return current_letter.to_upper()
 
 func get_letters() -> Array:
 	return letters
@@ -52,7 +52,7 @@ func draw_letter() -> void:
 	update_visuals()
 
 # ========================
-# Zobrazení a aktualizace stavu
+# Zobrazení stavu
 # ========================
 
 func update_visuals() -> void:

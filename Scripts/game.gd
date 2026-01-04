@@ -2,12 +2,19 @@ extends PanelContainer
 
 @onready var timer_spin: Timer = $TimerSpin
 @onready var timer_autostop: Timer = $TimerAutostop
-@onready var letter: Letter = $MarginContainer/VBoxContainer/LetterContainer/Letter
+@onready var letter: Letter = $MarginContainer/VBoxContainer/Letter
+@onready var subject: Subject = $MarginContainer/VBoxContainer/Subject
+@onready var answer: PanelContainer = $MarginContainer/VBoxContainer/Answer
 
 # --- Stav aplikace ---
 
 var is_spinning: bool = false
 var is_stopping: bool = false
+
+var current_letter: String = ""
+var current_subject: String = ""
+var current_answer: String = ""
+var current_points: int = 0
 
 func _ready() -> void:
 	randomize()
@@ -43,10 +50,21 @@ func spin_finalize() -> void:
 	is_stopping = false
 	timer_spin.stop()
 	timer_autostop.stop()
+		
+	current_letter = letter.get_current_letter()
+	current_subject = subject.get_current_subject()		
+	current_answer = answer.get_answer(current_subject, current_letter)	
+	current_points = letter.get_current_points()
 
-	print("[Spin] Konec losování")		
-	print("[Game] Výsledné písmeno: ", letter.get_current_letter())
-	print("[Game] Body: ", letter.get_current_points())
+	answer.show_answer(current_subject, current_letter)	
+	Visuals.pop_animation(subject, 1.6)
+	Visuals.screen_shake(self, 6.0, 0.3)
+
+	print("[Spin] Konec losování")
+	print("[Game] Písmeno: ", current_letter)
+	print("[Game] Slovo: ", current_subject)	
+	print("[Game] Odpověď: ", current_answer)
+	print("[Game] Body: ", current_points)	
 
 # ========================
 # Signály časovače
@@ -54,8 +72,9 @@ func spin_finalize() -> void:
 
 # Časovač losování
 func _on_timer_spin_timeout() -> void:
-	# 1. VŽDY nejdříve pohneme písmenem
+	# 1. VŽDY nejdříve pohneme písmenem a slovem
 	letter.draw_letter()
+	subject.draw_subject()	
 	
 	# 2. Pokud zpomalujeme, upravíme čas a zkontrolujeme zastavení
 	if is_stopping:

@@ -1,64 +1,70 @@
 class_name Subject
 extends Node
 
-var subjects: Array = Settings.SUBJECTS
+@onready var label: Label = $Label
+
+var subjects: Array = []
 var current_index: int = 0
 
-var current_subject_key: String = "" # Přejmenováno pro přehlednost (drží klíč, ne text)
-var current_subject: String = ""
+var current_subject_key: String = "" # Drží klíč pro překlad (např. "SUBJ_CITY")
+var current_subject: String = ""     # Drží přeložený text (např. "Město")
 
-func _ready() -> void:	
-	# Inicializace losovani
-	draw_init()
+func _ready() -> void:
+	# Načteme data ze Settings
+	subjects = Settings.SUBJECTS
 	
-	# Zobrazíme první položku
-	update_visuals()	
+	# Inicializace pole (zamíchání na začátku)
+	shuffle_subjects()
 	
+	# Nastavíme výchozí stav
+	update_visuals()
+
 # ========================
 # Gettery pro hlavní aplikaci
 # ========================
 
-# Funkce, která vrací aktuální písmeno
 func get_current_subject() -> String:
 	return current_subject
 
 # ========================
-# Losování subjektu
+# Logika losování
 # ========================
 
-# Funkce, která inicializuje pole a zamicha ho a provede dalsi potrebne inicializace pro losovani
-func draw_init() -> void:		
+# Inicializuje/zamíchá pole (volat jen při startu nebo ručním resetu)
+func shuffle_subjects() -> void:		
 	subjects.shuffle()
 	current_index = 0
 
-# Funkce volaná časovačem - posouvá index v poli
+# Funkce volaná externě z hlavního controlleru přes časovač
 func draw_subject() -> void:
-	current_index += 1
-	
-	# Pokud jsme došli na konec balíčku, provedeme znovu inicializaci losovani
-	if current_index >= subjects.size():
-		draw_init()
+	if subjects.size() == 0:
+		return
 		
-	# Uložení aktualniho losovaneho subjektu...
-	current_subject_key = subjects[current_index] as String
-	current_subject = tr(current_subject_key)
-
+	# Posun indexu s automatickým návratem na nulu (modulo)
+	current_index = (current_index + 1) % subjects.size()
+	
 	update_visuals()
 
 # ========================
-# Zobrazení informací
+# Zobrazení stavu
 # ========================
 
 func update_visuals() -> void:
-	pass
+	if subjects.size() > 0:
+		# Uložení aktuálního klíče
+		current_subject_key = subjects[current_index] as String
+		# Uložení přeloženého textu (tr = translation)
+		current_subject = tr(current_subject_key)
 	
+	# Zde můžeš přidat aktualizaci Labelu, pokud ho tento uzel má, např.:
+	label.text = current_subject
+
 # ========================
 # Náhodné hodnoty
 # ========================
 
-# Vrací náhodný subject z pole všech subjektů
-# Neefektivní při volání v timeru, ale pro jeden náhodný subject je to ok.
-func get_random_letter() -> String:
+# Vrací náhodný přeložený subjekt (bez ovlivnění aktuálního indexu)
+func get_random_subject() -> String:
 	var random_subject_key = subjects.pick_random() as String
 	if random_subject_key.is_empty():
 		return ""

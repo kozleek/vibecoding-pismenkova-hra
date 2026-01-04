@@ -22,7 +22,7 @@ func screen_shake(target_node, intensity: float = 5.0, duration: float = 0.2, re
 # ========================
 
 # POP animace
-func pop_animation(target_node: Control, factor: float = 1.4, duration: float = 0.2, repeat: int = 1):
+func pop_animation(target_node, factor: float = 1.4, duration: float = 0.2, repeat: int = 1):
 	# Ujistěte se, že pivot bod je ve středu (aby se zvětšoval ze středu)
 	target_node.pivot_offset = target_node.size / 2
 	var tween = create_tween()

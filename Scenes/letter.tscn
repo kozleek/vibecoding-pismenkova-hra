@@ -19,10 +19,10 @@ size_flags_vertical = 4
 script = ExtResource("1_ka838")
 
 [node name="Background" type="Panel" parent="."]
-custom_minimum_size = Vector2(80, 80)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 
-[node name="Letter" type="Label" parent="Background"]
+[node name="Label" type="Label" parent="Background"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -35,7 +35,7 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 64
 text = "A"
 horizontal_alignment = 1
 vertical_alignment = 1

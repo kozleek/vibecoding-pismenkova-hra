@@ -13,7 +13,7 @@ const MASTER_BUS_INDEX = 0
 
 # Cesta k uložení uživatelského nastavení
 const SAVEDATA_PATH = "user://savedata.json"
-const PREGENERATED_ANSWERS_PATH = "res://Data/pregenerated_answers.json"
+const ANSWERS_PATH = "res://Data/answers.json"
 const SCENE_INTRO_PATH = "res://Scenes/intro.tscn"
 const SCENA_GAME_PATH = "res://Scenes/game.tscn"
 

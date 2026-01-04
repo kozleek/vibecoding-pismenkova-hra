@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://uw6mjftj51xj"]
+[gd_scene load_steps=5 format=3 uid="uid://uw6mjftj51xj"]
 
 [ext_resource type="PackedScene" uid="uid://qho2h8nabdaq" path="res://Scenes/letter.tscn" id="1_ebmjs"]
 [ext_resource type="Script" uid="uid://bs6pkiqbhwhpb" path="res://Scripts/game.gd" id="1_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://mu8lmro4gd41" path="res://Scenes/subject.tscn" id="3_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://dod3wlgmdrxsp" path="res://Scenes/answer.tscn" id="4_3dryh"]
 
 [node name="Game" type="PanelContainer"]
 anchors_preset = 15
@@ -33,16 +35,18 @@ theme_override_constants/margin_bottom = 40
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 40
 alignment = 1
 
-[node name="LetterContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Letter" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_ebmjs")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 
-[node name="Letter" parent="MarginContainer/VBoxContainer/LetterContainer" instance=ExtResource("1_ebmjs")]
+[node name="Subject" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_wrm1d")]
+layout_mode = 2
+
+[node name="Answer" parent="MarginContainer/VBoxContainer" instance=ExtResource("4_3dryh")]
 layout_mode = 2
 
 [connection signal="timeout" from="TimerAutostop" to="." method="_on_timer_autostop_timeout"]
 [connection signal="timeout" from="TimerSpin" to="." method="_on_timer_spin_timeout"]
-[connection signal="timeout" from="TimerSpin" to="MarginContainer/VBoxContainer/LetterContainer/Letter" method="_on_timer_spin_timeout"]
+[connection signal="timeout" from="TimerSpin" to="MarginContainer/VBoxContainer/Letter" method="_on_timer_spin_timeout"]

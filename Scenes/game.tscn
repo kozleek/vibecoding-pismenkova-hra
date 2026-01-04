@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://uw6mjftj51xj"]
+[gd_scene load_steps=6 format=3 uid="uid://uw6mjftj51xj"]
 
 [ext_resource type="PackedScene" uid="uid://qho2h8nabdaq" path="res://Scenes/letter.tscn" id="1_ebmjs"]
 [ext_resource type="Script" uid="uid://bs6pkiqbhwhpb" path="res://Scripts/game.gd" id="1_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://mqtqs3sw2e8o" path="res://Scenes/background.tscn" id="2_wowpa"]
 [ext_resource type="PackedScene" uid="uid://mu8lmro4gd41" path="res://Scenes/subject.tscn" id="3_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://dod3wlgmdrxsp" path="res://Scenes/answer.tscn" id="4_3dryh"]
 
@@ -13,18 +14,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qxrlw")
 
-[node name="TimerAutostop" type="Timer" parent="."]
-one_shot = true
-autostart = true
-
 [node name="TimerSpin" type="Timer" parent="."]
 wait_time = 0.05
 autostart = true
 
-[node name="Background" type="Panel" parent="."]
+[node name="TimerAutostop" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="Background" parent="." instance=ExtResource("2_wowpa")]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -47,6 +46,6 @@ layout_mode = 2
 [node name="Answer" parent="MarginContainer/VBoxContainer" instance=ExtResource("4_3dryh")]
 layout_mode = 2
 
-[connection signal="timeout" from="TimerAutostop" to="." method="_on_timer_autostop_timeout"]
 [connection signal="timeout" from="TimerSpin" to="." method="_on_timer_spin_timeout"]
 [connection signal="timeout" from="TimerSpin" to="MarginContainer/VBoxContainer/Letter" method="_on_timer_spin_timeout"]
+[connection signal="timeout" from="TimerAutostop" to="." method="_on_timer_autostop_timeout"]

@@ -2,6 +2,7 @@ extends PanelContainer
 
 @onready var timer_spin: Timer = $TimerSpin
 @onready var timer_autostop: Timer = $TimerAutostop
+@onready var background: Panel = $Background
 @onready var letter: Letter = $MarginContainer/VBoxContainer/Letter
 @onready var subject: Subject = $MarginContainer/VBoxContainer/Subject
 @onready var answer: PanelContainer = $MarginContainer/VBoxContainer/Answer
@@ -18,6 +19,8 @@ var current_points: int = 0
 
 func _ready() -> void:
 	randomize()
+	
+	Visuals.change_background_color(background)
 	
 	# Nastavení rychlosti časovačů
 	timer_spin.wait_time = Settings.spin_wait_time

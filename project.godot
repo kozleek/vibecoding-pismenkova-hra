@@ -23,6 +23,11 @@ UserData="*res://Scripts/Globals/user_data.gd"
 Visuals="*res://Scripts/Globals/visuals.gd"
 Audio="*res://Scripts/Globals/audio.gd"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
 [internationalization]
 
 locale/translations=PackedStringArray("res://translations.cs.translation", "res://translations.en.translation")

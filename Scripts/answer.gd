@@ -1,7 +1,7 @@
 extends Node
 
 @onready var answerContainer: PanelContainer = $"."
-@onready var label: Label = $Label
+@onready var label: Label = $MarginContainer/Label
 
 var answers: Dictionary = {}
 var current_answer: String = ""

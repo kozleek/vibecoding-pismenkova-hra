@@ -11,9 +11,11 @@ extends PanelContainer
 
 # --- Stav aplikace ---
 
-var is_spinning: bool = false
-var is_stopping: bool = false
-var is_round_active: bool = false
+var is_spinning: bool = false # je aktivní proces losování?
+var is_stopping: bool = false # je spuštěno zpomalení losování?
+var is_finalize: bool = false # je kompletně zastavený proces losování?
+var is_round_active: bool = false # je aktivní odpočet kola?
+var is_round_finished: bool = false # je kolo dokončeno a čeká se na další kolo?
 
 var current_letter: String = ""
 var current_subject: String = ""
@@ -44,22 +46,30 @@ func spin_start() -> void:
 	print("[Spin] Začátek losování")
 	is_spinning = true
 	is_stopping = false
-	is_round_active = false
+	is_finalize = false
+	
+	# Ukončení herního kola a skrytí odpovědi
+	answer.hide()
+	round.end()
 	
 	# Resetujeme rychlost timeru na výchozí hodnotu
 	timer_spin.wait_time = Settings.spin_wait_time
 	
 	timer_spin.start()
-	timer_autostop.start()	
+	timer_autostop.start()
 
 func spin_stop() -> void:
 	print("[Spin] Začíná zpomalování")
 	is_spinning = false
 	is_stopping = true
-	is_round_active = false
+	is_finalize = false
 
 func spin_finalize() -> void:
+	is_spinning = false
 	is_stopping = false
+	is_finalize = true
+	
+	# Pro jistotu zastavíme všechny časovače
 	timer_spin.stop()
 	timer_autostop.stop()
 		
@@ -69,14 +79,17 @@ func spin_finalize() -> void:
 	current_points = letter.get_current_points()
 
 	print("[Spin] Konec losování")
+	print("[Game] ------------------------------------")
 	print("[Game] Písmeno: ", current_letter)
-	print("[Game] Slovo: ", current_subject)	
+	print("[Game] Slovo: ", current_subject)
 	print("[Game] Odpověď: ", current_answer)
-	print("[Game] Body: ", current_points)	
+	print("[Game] Body: ", current_points)
+	print("[Game] ------------------------------------")
 	
 	Visuals.screen_shake(self, 6.0, 0.3)
-	Visuals.pop_animation(subject, 1.6)		
+	Visuals.pop_animation(subject, 1.6)
 	
+	# Spustíme odpočet kola
 	round_start()	
 
 # ========================
@@ -84,11 +97,15 @@ func spin_finalize() -> void:
 # ========================
 
 func round_start() -> void:
+	print("[Game] Start kola")
 	is_round_active = true
-	round.start()	
+	is_round_finished = false
+	round.start()
 
 func round_end() -> void:
+	print("[Game] Konec kola")
 	is_round_active = false
+	is_round_finished = true	
 
 # ========================
 # Signály časovače
@@ -111,9 +128,27 @@ func _on_timer_spin_timeout() -> void:
 # Časovač pro automatické zastavení
 func _on_timer_autostop_timeout() -> void:
 	if is_spinning:
-		print("[Spin] Aktivován autostop")
+		print("[Spin] Aktivován autostop: ", timer_autostop.wait_time)
 		spin_stop()
 
 # Časovač konce kola
-func _on_round_finished() -> void:	
+func _on_round_finished() -> void:
 	round_end()
+	
+# ========================
+# Ovládaní aplikace
+# ========================
+	
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("spinning"):
+		if is_spinning == false:
+			spin_start()
+		else:
+			spin_stop()
+
+	if event.is_action_pressed("answer"):		
+		if is_round_finished == true and is_finalize == true:
+			print("[Input:Answer] Zobrazení odpovědi")
+			answer.show_answer(current_subject, current_letter)
+		else:
+			print("[Input:Answer] Odpověď nelze zobrazit. is_round_finished: %s, is_finalize: %s" % [is_round_finished, is_finalize])

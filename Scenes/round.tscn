@@ -57,12 +57,12 @@ value = 40.0
 show_percentage = false
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.99215686, 0.92156863, 0.78039217, 1)
 theme_override_fonts/font = ExtResource("4_ckbw8")
 theme_override_font_sizes/font_size = 48
-text = "5 sec."
+text = "10 sec."
 horizontal_alignment = 2
 
 [connection signal="timeout" from="TimerRound" to="." method="_on_timer_round_timeout"]

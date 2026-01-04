@@ -16,21 +16,23 @@ func _ready() -> void:
 	timer_round.wait_time = Settings.round_wait_time
 	
 	# Nastavení textu pro zbývající čas	
-	remaining_time = Settings.round_wait_time
+	remaining_time = int(Settings.round_wait_time)
 	label.text = str(remaining_time) + ' ' + tr("UI_SEC")
 
 	self.hide()
 
 # Začátek kola
 func start() -> void:
-	print("[Round] Start kola")
+	progress_bar.value = 0.0
+	remaining_time = int(Settings.round_wait_time)
+	label.text = str(remaining_time) + ' ' + tr("UI_SEC")
+	
 	self.show()
 	timer_round.start()
 	timer_round_step.start()
 
 # Konec kola
-func end() -> void:
-	print("[Round] Konec kola")
+func end() -> void:	
 	self.hide()	
 	timer_round.stop()
 	timer_round_step.stop()
@@ -45,7 +47,7 @@ func _process(_delta: float) -> void:
 func _on_timer_round_timeout() -> void:
 	end()
 
-
+# Sekundový časovač pro odpočet kola - mění text v labelu u progress baru
 func _on_timer_round_step_timeout() -> void:
 	current_time += 1
 	remaining_time -= 1

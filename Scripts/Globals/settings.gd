@@ -127,6 +127,6 @@ var slowdown_factor: float = 1.2
 # Hraniční hodnota pro zastavení losování
 var slowdown_stop_speed: float = 0.3
 # Čas pro autostop
-var autostop_wait_time: float = 1.0
+var autostop_wait_time: float = 5.0
 # Délka času na odpovědi (sec)
 var round_wait_time: float = 10.0

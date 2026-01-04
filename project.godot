@@ -31,3 +31,8 @@ window/size/viewport_height=1080
 [internationalization]
 
 locale/translations=PackedStringArray("res://translations.cs.translation", "res://translations.en.translation")
+
+[rendering]
+
+textures/vram_compression/import_s3tc_bptc=true
+textures/vram_compression/import_etc2_astc=true

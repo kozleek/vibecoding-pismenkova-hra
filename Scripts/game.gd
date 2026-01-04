@@ -20,6 +20,7 @@ var current_points: int = 0
 func _ready() -> void:
 	randomize()
 	
+	# Generovana barva pozadi
 	Visuals.change_background_color(background)
 	
 	# Nastavení rychlosti časovačů
@@ -58,10 +59,11 @@ func spin_finalize() -> void:
 	current_subject = subject.get_current_subject()		
 	current_answer = answer.get_answer(current_subject, current_letter)	
 	current_points = letter.get_current_points()
-
-	answer.show_answer(current_subject, current_letter)	
-	Visuals.pop_animation(subject, 1.6)
+	
 	Visuals.screen_shake(self, 6.0, 0.3)
+	Visuals.pop_animation(subject, 1.6)	
+	
+	# answer.show_answer(current_subject, current_letter)	
 
 	print("[Spin] Konec losování")
 	print("[Game] Písmeno: ", current_letter)

@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://qho2h8nabdaq"]
+[gd_scene load_steps=8 format=3 uid="uid://qho2h8nabdaq"]
 
 [ext_resource type="StyleBox" uid="uid://csv14nt8iapkt" path="res://Styles/letter.tres" id="1_7n1mw"]
 [ext_resource type="Script" uid="uid://cnqnccmuphnow" path="res://Scripts/letter.gd" id="1_ka838"]
 [ext_resource type="FontFile" uid="uid://dsa1xxi54pxfy" path="res://Assets/Fonts/TitanOne-Regular.ttf" id="3_sqwnb"]
+[ext_resource type="StyleBox" uid="uid://deavsdkc3migd" path="res://Styles/point.tres" id="4_l3lmy"]
+[ext_resource type="Texture2D" uid="uid://y5cfix130xre" path="res://Assets/point.png" id="5_is782"]
+[ext_resource type="FontFile" uid="uid://ovdywd05xpyl" path="res://Assets/Fonts/CaveatBrush-Regular.ttf" id="6_ncqpm"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5edsh"]
+texture = ExtResource("5_is782")
 
 [node name="Letter" type="PanelContainer"]
 custom_minimum_size = Vector2(350, 350)
@@ -28,5 +34,45 @@ theme_override_colors/font_color = Color(0.8156863, 0.54901963, 0.32941177, 1)
 theme_override_fonts/font = ExtResource("3_sqwnb")
 theme_override_font_sizes/font_size = 300
 text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PointsContainer" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="Panel" type="Panel" parent="PointsContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("4_l3lmy")
+
+[node name="Panel" type="Panel" parent="PointsContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5edsh")
+
+[node name="Label" type="Label" parent="PointsContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.49019608, 0.21960784, 0.015686275, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("6_ncqpm")
+theme_override_font_sizes/font_size = 80
+text = "4"
 horizontal_alignment = 1
 vertical_alignment = 1

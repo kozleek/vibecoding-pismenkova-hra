@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://mu8lmro4gd41"]
+[gd_scene load_steps=4 format=3 uid="uid://mu8lmro4gd41"]
 
 [ext_resource type="Script" uid="uid://diuq8y2eaoryl" path="res://Scripts/subject.gd" id="1_u6xdh"]
+[ext_resource type="FontFile" uid="uid://ovdywd05xpyl" path="res://Assets/Fonts/CaveatBrush-Regular.ttf" id="2_iq2qi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iq2qi"]
 
 [node name="Subject" type="PanelContainer"]
 anchors_preset = 15
@@ -8,11 +11,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_iq2qi")
 script = ExtResource("1_u6xdh")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
+theme_override_colors/font_color = Color(0.99215686, 0.92156863, 0.78039217, 1)
+theme_override_fonts/font = ExtResource("2_iq2qi")
+theme_override_font_sizes/font_size = 180
 text = "Ženské jméno"
 horizontal_alignment = 1
 vertical_alignment = 1

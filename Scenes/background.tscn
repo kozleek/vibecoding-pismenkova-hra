@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://mqtqs3sw2e8o"]
+
+[ext_resource type="StyleBox" path="res://Styles/background.tres" id="1_sn1xx"]
+[ext_resource type="Shader" uid="uid://btaeet3jjbpmb" path="res://Assets/background_shader.gdshader" id="2_xgxeb"]
+[ext_resource type="Texture2D" uid="uid://dld85l0stgd22" path="res://Assets/background_tile.png" id="3_ltlj5"]
+[ext_resource type="Texture2D" uid="uid://c1g0a1t812vj1" path="res://Assets/background_gradient.png" id="4_rymcx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_42s4r"]
+shader = ExtResource("2_xgxeb")
+shader_parameter/smer_a_rychlost = Vector2(0, 0.1)
+
+[node name="Background" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_sn1xx")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_42s4r")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ltlj5")
+stretch_mode = 1
+
+[node name="Sprite2D" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_rymcx")

@@ -1,8 +1,7 @@
 class_name Letter
 extends Node
 
-@onready var background: Panel = $Background
-@onready var label: Label = $Background/Label
+@onready var label: Label = $Label
 
 var letters_and_points: Dictionary = Settings.LETTERS_AND_POINTS
 var letters: Array = []

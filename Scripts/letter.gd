@@ -2,6 +2,9 @@ class_name Letter
 extends Node
 
 @onready var label: Label = $Label
+@onready var points_container: Control = $PointsContainer
+@onready var points: Label = $PointsContainer/Panel/Label
+
 
 var letters_and_points: Dictionary = Settings.LETTERS_AND_POINTS
 var letters: Array = []
@@ -17,7 +20,8 @@ func _ready() -> void:
 	# Prvotní zamíchání a nastavení
 	shuffle_letters()
 	
-	# Zobrazíme výchozí stav (index 0)
+	# Zobrazíme výchozí stav a skryjeme body (index 0)
+	points_container.hide()
 	update_visuals()
 
 # ========================
@@ -61,7 +65,18 @@ func update_visuals() -> void:
 		current_points = get_random_points()
 		
 		# Aktualizace UI
-		label.text = current_letter.to_upper()
+		label.text = current_letter.to_upper()		
+
+# ========================
+# Zobrazení bodů
+# ========================
+
+func points_show() -> void:
+	points.text = str(current_points)
+	points_container.show()
+
+func points_hide() -> void:
+	points_container.hide()
 
 # ========================
 # Výpočty a pomocné funkce

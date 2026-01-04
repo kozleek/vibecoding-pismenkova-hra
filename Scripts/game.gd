@@ -28,6 +28,13 @@ func _ready() -> void:
 	# Připojení signalu
 	round.round_finished.connect(_on_round_finished)
 	
+	
+	
+	
+	
+	
+	
+	
 	# Generovana barva pozadi
 	Visuals.change_background_color(background)
 	
@@ -43,7 +50,7 @@ func _ready() -> void:
 # ========================
 
 func spin_start() -> void:
-	print("[Spin] Začátek losování")
+	print("[Game] Začátek losování")
 	is_spinning = true
 	is_stopping = false
 	is_finalize = false
@@ -51,6 +58,7 @@ func spin_start() -> void:
 	# Ukončení herního kola a skrytí odpovědi
 	answer.hide()
 	round.end()
+	letter.points_hide()
 	
 	# Resetujeme rychlost timeru na výchozí hodnotu
 	timer_spin.wait_time = Settings.spin_wait_time
@@ -59,7 +67,7 @@ func spin_start() -> void:
 	timer_autostop.start()
 
 func spin_stop() -> void:
-	print("[Spin] Začíná zpomalování")
+	print("[Game] Začíná zpomalování")
 	is_spinning = false
 	is_stopping = true
 	is_finalize = false
@@ -78,7 +86,7 @@ func spin_finalize() -> void:
 	current_answer = answer.get_answer(current_subject, current_letter)	
 	current_points = letter.get_current_points()
 
-	print("[Spin] Konec losování")
+	print("[Game] Konec losování")
 	print("[Game] ------------------------------------")
 	print("[Game] Písmeno: ", current_letter)
 	print("[Game] Slovo: ", current_subject)
@@ -88,6 +96,8 @@ func spin_finalize() -> void:
 	
 	Visuals.screen_shake(self, 6.0, 0.3)
 	Visuals.pop_animation(subject, 1.6)
+	
+	letter.points_show()
 	
 	# Spustíme odpočet kola
 	round_start()	
@@ -128,7 +138,7 @@ func _on_timer_spin_timeout() -> void:
 # Časovač pro automatické zastavení
 func _on_timer_autostop_timeout() -> void:
 	if is_spinning:
-		print("[Spin] Aktivován autostop: ", timer_autostop.wait_time)
+		print("[Game] Aktivován autostop: ", timer_autostop.wait_time)
 		spin_stop()
 
 # Časovač konce kola

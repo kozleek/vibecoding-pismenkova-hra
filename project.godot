@@ -1,0 +1,28 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="pismenkova-hra-v2"
+run/main_scene="uid://uw6mjftj51xj"
+config/features=PackedStringArray("4.5", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Helpers="*res://Scripts/Globals/helpers.gd"
+Settings="*res://Scripts/Globals/settings.gd"
+UserData="*res://Scripts/Globals/user_data.gd"
+Visuals="*res://Scripts/Globals/visuals.gd"
+Audio="*res://Scripts/Globals/audio.gd"
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://translations.cs.translation", "res://translations.en.translation")

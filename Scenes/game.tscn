@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://uw6mjftj51xj"]
+
+[ext_resource type="PackedScene" uid="uid://qho2h8nabdaq" path="res://Scenes/letter.tscn" id="1_ebmjs"]
+[ext_resource type="Script" uid="uid://bs6pkiqbhwhpb" path="res://Scripts/game.gd" id="1_qxrlw"]
+
+[node name="Game" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qxrlw")
+
+[node name="TimerAutostop" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="TimerSpin" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="LetterContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Letter" parent="MarginContainer/VBoxContainer/LetterContainer" instance=ExtResource("1_ebmjs")]
+layout_mode = 2
+
+[connection signal="timeout" from="TimerAutostop" to="." method="_on_timer_autostop_timeout"]
+[connection signal="timeout" from="TimerSpin" to="." method="_on_timer_spin_timeout"]
+[connection signal="timeout" from="TimerSpin" to="MarginContainer/VBoxContainer/LetterContainer/Letter" method="_on_timer_spin_timeout"]

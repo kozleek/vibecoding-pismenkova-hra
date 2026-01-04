@@ -1,0 +1,80 @@
+keys,cs,en
+SUB_SPORTOVEC,Sportovec,Athlete
+SUB_HLAVNI_MESTO,Hlavní město,Capital City
+SUB_STAT,Stát,Country
+SUB_POLITIK,Politik,Politician
+SUB_SPISOVATEL,Spisovatel,Writer
+SUB_REKA,Řeka,River
+SUB_HORA,Hora,Mountain
+SUB_SKOLNI_POMUCKA,Školní pomůcka,School Supplies
+SUB_MISTNOST,Místnost,Room
+SUB_DOPRAVNI_PROSTREDEK,Dopravní prostředek,Vehicle
+SUB_POCASI,Počasí,Weather
+SUB_CLEN_RODINY,Člen rodiny,Family Member
+SUB_POTRAVINA,Potravina,Food
+SUB_SKOLNI_PREDMET,Školní předmět,School Subject
+SUB_SKLADATEL,Skladatel,Composer
+SUB_OVOCE,Ovoce,Fruit
+SUB_NABYTEK,Nábytek,Furniture
+SUB_OBLECENI,Oblečení,Clothing
+SUB_TECHNOLOGIE,Technologie,Technology
+SUB_BARVA,Barva,Color
+SUB_FILM,Film,Movie
+SUB_POHADKOVA_POSTAVA,Pohádková postava,Fairy Tale Character
+SUB_PISNICKA,Písnička,Song
+SUB_ZPEVAK_SKUPINA,Zpěvák / Skupina,Singer / Band
+SUB_HMYZ,Hmyz,Insect
+SUB_SAVEC,Savec,Mammal
+SUB_PTAK,Pták,Bird
+SUB_PLAZ,Plaz,Reptile
+SUB_CAST_TELA,Část těla,Body Part
+SUB_SPORTOVNI_VYBAVENI,Sportovní vybavení,Sports Equipment
+SUB_SPORT,Sport,Sport
+SUB_ZELENINA,Zelenina,Vegetable
+SUB_TV_SERIAL,TV Seriál,TV Series
+SUB_MUZSKE_JMENO,Mužské jméno,Male Name
+SUB_ZENSKE_JMENO,Ženské jméno,Female Name
+SUB_TRADICE,Tradice,Tradition
+SUB_NAPOJE,Nápoje,Beverages
+SUB_PECIVO,Pečivo,Pastry
+SUB_HRACKA,Hračka,Toy
+SUB_MATERIAL,Materiál,Material
+SUB_KORENI,Koření,Spice
+SUB_ZVIRE,Zvíře,Animal
+SUB_STROM,Strom,Tree
+SUB_ROSTLINA,Rostlina,Plant
+SUB_VELICINA,Veličina,Quantity
+SUB_NEMOC,Nemoc,Disease
+SUB_ZDRAVOTNI_POTREBY,Zdravotní potřeby,Medical Supplies
+SUB_PROFESE,Profese,Profession
+SUB_LEK,Lék,Medicine
+SUB_MENA,Měna,Currency
+SUB_VLASTNOST,Vlastnost,Trait
+SUB_KONICEK,Koníček,Hobby
+SUB_POVOLANI,Povolání,Occupation
+SUB_CINNOST,Činnost,Activity
+SUB_NASTROJ,Nástroj,Tool
+SUB_CHEMICKY_PRVEK,Chemický prvek,Chemical Element
+SUB_HEREC,Herec,Actor
+SUB_POCITACOVA_HRA,Počítačová hra,Video Game
+SUB_KOMIX,Komiks,Comic Book
+SUB_KNIHA,Kniha,Book
+SUB_SKUPINA,Hudební skupina,Group
+SUB_SUPERHRDINA,Superhrdina,Superhero
+SUB_VEDEC,Vědec,Scientist
+SUB_FIRMA_ZNACKA,Firma / Značka,Company / Brand
+SUB_OBCHODNI_RETEZEC,Obchodní řetězec,Retail Chain
+SUB_HUDEBNI_NASTROJ,Hudební nástroj,Musical Instrument
+SUB_LITERALNI_ZANR,Literární žánr,Literary Genre
+SUB_EMOCE,Emoce,Emotion
+SUB_NALADA,Nálada,Mood
+SUB_STROM_GENERAL,Strom (obecně),Tree (General)
+SUB_MISTO_PAMATKA,Místo / Památka,Place / Landmark
+SUB_JIDLO_POKRM,Jídlo / Pokrm,Dish / Meal
+SUB_HISTORICKA_UDALOST,Historická událost,Historical Event
+SUB_DINOSAURUS,Dinosaurus,Dinosaur
+SUB_PLANETA,Planeta,Planet
+SUB_BAJE_A_POVESTI,Báje a pověsti,Myths and Legends
+SUB_SPORTOVNI_TYM,Sportovní tým,Sports Team
+UI_POCET_PISMEN,Počet písmen?,Number of letters?
+UI_SEC,sec.,sec.

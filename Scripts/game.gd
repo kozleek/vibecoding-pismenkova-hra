@@ -28,10 +28,7 @@ var current_points: int = 0
 
 func _ready() -> void:
 	randomize()
-	
-	# Připojení signalu
-	round.signal_round_finished.connect(_on_round_finished)
-	
+		
 	# Generovana barva pozadi
 	Visuals.change_background_color(background)
 	
@@ -119,7 +116,7 @@ func round_end() -> void:
 	is_round_finished = true	
 
 # ========================
-# Signály časovače
+# Signály
 # ========================
 
 # Časovač losování
@@ -143,7 +140,7 @@ func _on_timer_autostop_timeout() -> void:
 		spin_stop()
 
 # Časovač konce kola
-func _on_round_finished() -> void:
+func _on_round_signal_round_finished() -> void:
 	round_end()
 	
 # ========================
@@ -163,7 +160,3 @@ func _input(event: InputEvent) -> void:
 			answer.show_answer(current_subject, current_letter)
 		else:
 			print("[Input:Answer] Odpověď nelze zobrazit. is_round_finished: %s, is_finalize: %s" % [is_round_finished, is_finalize])
-
-
-func _on_signal_spin_finalize() -> void:
-	pass # Replace with function body.

@@ -1,6 +1,7 @@
 class_name Letter
 extends Node
 
+@onready var sound_effect: AudioStreamPlayer2D = $SoundEffect
 @onready var label: Label = $Label
 @onready var points_container: Control = $PointsContainer
 @onready var points: Label = $PointsContainer/Panel/Label
@@ -53,6 +54,11 @@ func draw_letter() -> void:
 	
 	# 2. Aktualizujeme data a vizuál pro tento NOVÝ index
 	update_visuals()
+	
+	# Prehrani zvuku s variaci
+	if sound_effect:
+		sound_effect.pitch_scale = randf_range(0.9, 1.1)
+		sound_effect.play()
 
 # ========================
 # Zobrazení stavu
@@ -91,3 +97,10 @@ func get_scrabble_points() -> int:
 # Pokud bys chtěl úplně náhodné body (mimo Scrabble tabulku), jak jsi měl v původním kódu
 func get_random_points() -> int:
 	return randi_range(Settings.points_range.x, Settings.points_range.y)
+
+# ========================
+# Zpracovani signalu aplikace
+# ========================
+
+func _on_game_signal_spin_finalize() -> void:
+	sound_effect.stop()

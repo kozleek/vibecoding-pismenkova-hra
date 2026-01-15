@@ -11,7 +11,9 @@ func save_settings() -> void:
 		"is_autostop_enabled": Settings.is_autostop_enabled,		
 		# Vector2i nelze přímo uložit do JSON, musíme ho rozložit
 		"points_min": Settings.points_range.x,
-		"points_max": Settings.points_range.y
+		"points_max": Settings.points_range.y,
+		"is_points_visible": Settings.is_points_visible,
+		"is_round_enabled": Settings.is_round_enabled
 	}
 	
 	var file = FileAccess.open(Settings.SAVEDATA_PATH, FileAccess.WRITE)
@@ -43,7 +45,9 @@ func load_settings() -> void:
 			# Načítáme hodnoty a používáme get() s výchozí hodnotou pro bezpečnost
 			Settings.is_sound_enabled = data.get("is_sound_enabled", Settings.is_sound_enabled)
 			Settings.is_mic_muted = data.get("is_mic_enabled", Settings.is_mic_enabled)			
-			Settings.is_autostop_enabled = data.get("is_autostop_enabled", Settings.is_autostop_enabled)			
+			Settings.is_autostop_enabled = data.get("is_autostop_enabled", Settings.is_autostop_enabled)
+			Settings.is_points_visible = data.get("is_points_visible", Settings.is_points_visible)
+			Settings.is_round_enabled = data.get("is_round_enabled", Settings.is_round_enabled)
 			
 			# Rekonstrukce Vector2i
 			if data.has("points_min") and data.has("points_max"):

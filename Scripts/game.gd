@@ -49,6 +49,7 @@ func spin_start() -> void:
 	is_spinning = true
 	is_stopping = false
 	is_finalize = false
+	is_round_active = false
 	
 	# Ukončení herního kola a skrytí odpovědi
 	answer.hide()
@@ -84,13 +85,10 @@ func spin_finalize() -> void:
 	current_answer = answer.get_answer(current_subject, current_letter)	
 	current_points = letter.get_current_points()
 
-	print("[Game] Konec losování")
-	print("[Game] ------------------------------------")
-	print("[Game] Písmeno: ", current_letter)
-	print("[Game] Slovo: ", current_subject)
-	print("[Game] Odpověď: ", current_answer)
-	print("[Game] Body: ", current_points)
-	print("[Game] ------------------------------------")
+	print("[Game] --- Písmeno: ", current_letter)
+	print("[Game] --- Slovo: ", current_subject)
+	print("[Game] --- Odpověď: ", current_answer)
+	print("[Game] --- Body: ", current_points)	
 	
 	Visuals.screen_shake(self, 6.0, 0.3)
 	Visuals.pop_animation(subject, 1.6)
@@ -106,14 +104,14 @@ func spin_finalize() -> void:
 
 func round_start() -> void:
 	if Settings.is_round_enabled:
-		print("[Game] Start kola")
+		print("[Round] Start kola")
 		is_round_active = true
 		is_round_finished = false
 		round.start()
 
 func round_end() -> void:
-	if Settings.is_round_enabled:
-		print("[Game] Konec kola")
+	if Settings.is_round_enabled and is_round_active:
+		print("[Round] Konec kola")
 		is_round_active = false
 		is_round_finished = true	
 

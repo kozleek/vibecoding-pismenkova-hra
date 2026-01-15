@@ -116,13 +116,13 @@ var is_sound_enabled: bool = true
 # Ztlumena řeč
 var is_mic_enabled: bool = true
 # Povoleni autostop funcionality
-var is_autostop_enabled: bool = true
+var is_autostop_enabled: bool = false
 # Rozsah náhodných bodů pro písmena
 var points_range: Vector2i = Vector2i(1, 5)
 # Zobrazovat hodnoty pismen?
-var is_points_visible: bool = false
+var is_points_visible: bool = true
 # Povolit odpocet kola?
-var is_round_enabled: bool = false
+var is_round_enabled: bool = true
 
 # Rychlost losování
 var spin_wait_time: float = 0.05

@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://0gydjk0qwxke"]
+[gd_scene load_steps=9 format=3 uid="uid://0gydjk0qwxke"]
 
 [ext_resource type="Script" uid="uid://7odq0r7ncd7q" path="res://Scripts/round.gd" id="1_l5srp"]
 [ext_resource type="StyleBox" uid="uid://b4ehxg7dlfq7" path="res://Styles/progress_bar_background.tres" id="2_46gvc"]
+[ext_resource type="AudioStream" uid="uid://b1eysw1m7dgm1" path="res://Assets/Sounds/click.mp3" id="2_nmt5k"]
+[ext_resource type="AudioStream" uid="uid://d2p7cuip5wpfj" path="res://Assets/Sounds/end.mp3" id="2_re3hn"]
 [ext_resource type="StyleBox" uid="uid://dud0lrsnd71n2" path="res://Styles/progress_bar_fill.tres" id="3_ckbw8"]
 [ext_resource type="FontFile" uid="uid://dsa1xxi54pxfy" path="res://Assets/Fonts/TitanOne-Regular.ttf" id="4_ckbw8"]
 
@@ -19,6 +21,12 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_y1cxc")
 script = ExtResource("1_l5srp")
+
+[node name="SoundEffect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_nmt5k")
+
+[node name="SoundEnd" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_re3hn")
 
 [node name="TimerRound" type="Timer" parent="."]
 one_shot = true

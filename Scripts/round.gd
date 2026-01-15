@@ -1,8 +1,10 @@
 class_name Round
 extends PanelContainer
 
-signal round_finished
+signal signal_round_finished
 
+@onready var sound_effect: AudioStreamPlayer2D = $SoundEffect
+@onready var sound_end: AudioStreamPlayer2D = $SoundEnd
 @onready var timer_round: Timer = $TimerRound
 @onready var timer_round_step: Timer = $TimerRoundStep
 @onready var progress_bar: ProgressBar = $MarginContainer/HBoxContainer/Panel/ProgressBar
@@ -39,7 +41,7 @@ func end() -> void:
 	self.hide()	
 	timer_round.stop()
 	timer_round_step.stop()
-	round_finished.emit()
+	signal_round_finished.emit()	
 
 # ========================
 # Zobrazení stavu
@@ -56,9 +58,12 @@ func _process(_delta: float) -> void:
 	
 # Spustí se když je kolo ukončeno
 func _on_timer_round_timeout() -> void:
-	self.end()
+	sound_effect.play()
+	sound_end.play()
+	self.end()	
 
 # Sekundový časovač pro odpočet kola - mění text v labelu u progress baru
 func _on_timer_round_step_timeout() -> void:
+	sound_effect.play()
 	remaining_time -= 1
 	label.text = str(remaining_time) + ' ' + tr("UI_SEC")

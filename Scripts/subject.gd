@@ -1,6 +1,7 @@
 class_name Subject
 extends Node
 
+@onready var sound_effect: AudioStreamPlayer2D = $SoundEffect
 @onready var label: Label = $Label
 
 var subjects: Array = []
@@ -70,3 +71,10 @@ func get_random_subject() -> String:
 		return ""
 	else:
 		return tr(random_subject_key)
+
+# ========================
+# Zpracovani signalu z aplikace
+# ========================
+
+func _on_game_signal_spin_finalize() -> void:
+	sound_effect.play()

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://mu8lmro4gd41"]
+[gd_scene load_steps=5 format=3 uid="uid://mu8lmro4gd41"]
 
 [ext_resource type="Script" uid="uid://diuq8y2eaoryl" path="res://Scripts/subject.gd" id="1_u6xdh"]
+[ext_resource type="AudioStream" uid="uid://dcotm04bmylv7" path="res://Assets/Sounds/tada.mp3" id="2_5wra7"]
 [ext_resource type="FontFile" uid="uid://ovdywd05xpyl" path="res://Assets/Fonts/CaveatBrush-Regular.ttf" id="2_iq2qi"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iq2qi"]
@@ -13,6 +14,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_iq2qi")
 script = ExtResource("1_u6xdh")
+
+[node name="SoundEffect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_5wra7")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2

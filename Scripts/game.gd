@@ -1,6 +1,10 @@
 class_name Game
 extends PanelContainer
 
+signal signal_spin_start
+signal signal_spin_stop
+signal signal_spin_finalize
+
 @onready var timer_spin: Timer = $TimerSpin
 @onready var timer_autostop: Timer = $TimerAutostop
 @onready var background: Panel = $Background
@@ -26,14 +30,7 @@ func _ready() -> void:
 	randomize()
 	
 	# Připojení signalu
-	round.round_finished.connect(_on_round_finished)
-	
-	
-	
-	
-	
-	
-	
+	round.signal_round_finished.connect(_on_round_finished)
 	
 	# Generovana barva pozadi
 	Visuals.change_background_color(background)
@@ -51,6 +48,7 @@ func _ready() -> void:
 
 func spin_start() -> void:
 	print("[Game] Začátek losování")
+	signal_spin_start.emit()
 	is_spinning = true
 	is_stopping = false
 	is_finalize = false
@@ -68,11 +66,14 @@ func spin_start() -> void:
 
 func spin_stop() -> void:
 	print("[Game] Začíná zpomalování")
+	signal_spin_stop.emit()
 	is_spinning = false
 	is_stopping = true
 	is_finalize = false
 
 func spin_finalize() -> void:
+	print("[Game] Konec losování")
+	signal_spin_finalize.emit()
 	is_spinning = false
 	is_stopping = false
 	is_finalize = true
@@ -162,3 +163,7 @@ func _input(event: InputEvent) -> void:
 			answer.show_answer(current_subject, current_letter)
 		else:
 			print("[Input:Answer] Odpověď nelze zobrazit. is_round_finished: %s, is_finalize: %s" % [is_round_finished, is_finalize])
+
+
+func _on_signal_spin_finalize() -> void:
+	pass # Replace with function body.

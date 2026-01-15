@@ -50,6 +50,8 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 8
 
+[connection signal="signal_spin_finalize" from="." to="MarginContainer/VBoxContainer/Letter" method="_on_game_signal_spin_finalize"]
+[connection signal="signal_spin_finalize" from="." to="MarginContainer/VBoxContainer/Subject" method="_on_game_signal_spin_finalize"]
 [connection signal="timeout" from="TimerSpin" to="." method="_on_timer_spin_timeout"]
 [connection signal="timeout" from="TimerSpin" to="MarginContainer/VBoxContainer/Letter" method="_on_timer_spin_timeout"]
 [connection signal="timeout" from="TimerAutostop" to="." method="_on_timer_autostop_timeout"]

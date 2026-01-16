@@ -1,8 +1,3 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://ctgkegabwu8l1"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k432l"]
+[gd_resource type="Theme" format=3 uid="uid://ctgkegabwu8l1"]
 
 [resource]
-Button/colors/font_color = Color(0.6627451, 0.078431375, 0.6431373, 1)
-Button/colors/icon_normal_color = Color(1, 1, 1, 0.4627451)
-PanelContainer/styles/panel = SubResource("StyleBoxEmpty_k432l")

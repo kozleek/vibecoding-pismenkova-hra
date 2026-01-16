@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://uw6mjftj51xj"]
+[gd_scene load_steps=8 format=3 uid="uid://uw6mjftj51xj"]
 
 [ext_resource type="PackedScene" uid="uid://qho2h8nabdaq" path="res://Scenes/letter.tscn" id="1_ebmjs"]
 [ext_resource type="Script" uid="uid://bs6pkiqbhwhpb" path="res://Scripts/game.gd" id="1_qxrlw"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://mu8lmro4gd41" path="res://Scenes/subject.tscn" id="3_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://dod3wlgmdrxsp" path="res://Scenes/answer.tscn" id="4_3dryh"]
 [ext_resource type="PackedScene" uid="uid://0gydjk0qwxke" path="res://Scenes/round.tscn" id="6_i6g32"]
+[ext_resource type="PackedScene" uid="uid://bwshwck4ejy70" path="res://Scenes/modal_settings.tscn" id="7_1l0tm"]
 
 [node name="Game" type="PanelContainer"]
 anchors_preset = 15
@@ -49,6 +50,10 @@ layout_mode = 2
 [node name="Round" parent="." instance=ExtResource("6_i6g32")]
 layout_mode = 2
 size_flags_vertical = 8
+
+[node name="ModalSettings" parent="." instance=ExtResource("7_1l0tm")]
+visible = false
+layout_mode = 2
 
 [connection signal="signal_spin_finalize" from="." to="MarginContainer/VBoxContainer/Letter" method="_on_game_signal_spin_finalize"]
 [connection signal="signal_spin_finalize" from="." to="MarginContainer/VBoxContainer/Subject" method="_on_game_signal_spin_finalize"]

@@ -75,3 +75,11 @@ Scripts/
 ├── answer.gd         # Zobrazení správných odpovědí
 └── menu.gd           # UI menu
 ```
+
+## Použité nástroje
+
+- **Godot Engine 4.5** - Herní engine pro vývoj aplikace
+- **ChatGPT** - Odpovědi byly předgenerované pomocí AI (ChatGPT 5 mini)
+- **Zvuky** - [Pixabay](https://pixabay.com/)
+- **Písma**: [Caveat Brush](https://fonts.google.com/specimen/Caveat+Brush) a [Titan One](https://fonts.google.com/specimen/Titan+One)
+- **Ikony**: [Phosphoricons](https://phosphoricons.com/)

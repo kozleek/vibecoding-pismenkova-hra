@@ -1,5 +1,7 @@
 # Písmenková hra
 
+![Splashscreen](splashscreen.png)
+
 Interaktivní aplikace pro hru v kategoriích vytvořená v Godot enginu.
 
 ## Popis

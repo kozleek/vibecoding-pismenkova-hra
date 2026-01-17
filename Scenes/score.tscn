@@ -1,0 +1,84 @@
+[gd_scene load_steps=4 format=3 uid="uid://bltqgkq15sww8"]
+
+[ext_resource type="Script" uid="uid://f0id3e01dwqw" path="res://Scripts/score.gd" id="1_xk7h2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_team1"]
+bg_color = Color(0.8, 0.2, 0.2, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_team2"]
+bg_color = Color(0.2, 0.4, 0.8, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="HBoxContainerCenter" type="HBoxContainer"]
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+alignment = 1
+script = ExtResource("1_xk7h2")
+
+[node name="Team1" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_team1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_team1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_team1")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_team1")
+theme_override_styles/focus = SubResource("StyleBoxFlat_team1")
+
+[node name="Score" type="Label" parent="Team1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 48
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Versus" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = ":"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Team2" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_team2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_team2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_team2")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_team2")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_team2")
+theme_override_styles/focus = SubResource("StyleBoxFlat_team2")
+
+[node name="Score" type="Label" parent="Team2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 48
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Team1" to="." method="add_points_to_team1"]
+[connection signal="pressed" from="Team2" to="." method="add_points_to_team2"]

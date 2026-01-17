@@ -14,6 +14,7 @@ signal signal_spin_finalize
 @onready var round: Round = $Round
 @onready var modal_settings: PanelContainer = $ModalSettings
 @onready var menu: MarginContainer = $Menu
+@onready var score: Score = $Menu/HBoxContainer/HBoxContainerCenter
 
 # --- Stav aplikace ---
 
@@ -31,8 +32,7 @@ var current_points: int = 0
 func _ready() -> void:
 	randomize()
 
-	# Načtení uživatelských nastavení
-	UserData.load_settings()
+	# Aplikace zvukových nastavení (data jsou již načtena v UserData autoloadu)
 	Audio.apply_sound_settings()
 
 	# Generovana barva pozadi
@@ -66,6 +66,9 @@ func spin_start() -> void:
 	answer.hide()
 	round.end()
 	#letter.points_hide()
+
+	# Zakázat přičítání bodů během losování
+	score.disable_scoring()
 
 	# Resetujeme rychlost timeru na výchozí hodnotu
 	timer_spin.wait_time = Settings.spin_wait_time
@@ -117,6 +120,8 @@ func spin_finalize() -> void:
 	# Zobrazíme tlačítko Help pokud není povoleno kolo
 	if not Settings.is_round_enabled:
 		menu.show_help_button()
+		# Pokud není povoleno kolo, umožníme přičítání bodů ihned
+		score.enable_scoring(current_points)
 
 	# Spustíme odpočet kola
 	round_start()	
@@ -138,7 +143,9 @@ func round_end() -> void:
 		is_round_active = false
 		is_round_finished = true
 		menu.set_play_button_disabled(false)
-		menu.show_help_button()	
+		menu.show_help_button()
+		# Po skončení kola umožníme přičítání bodů
+		score.enable_scoring(current_points)	
 
 # ========================
 # Signály

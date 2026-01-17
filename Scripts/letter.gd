@@ -83,8 +83,7 @@ func points_show() -> void:
 		points_container.show()
 
 func points_hide() -> void:
-	if Settings.is_points_visible:
-		points_container.hide()
+	points_container.hide()
 
 # ========================
 # Výpočty a pomocné funkce

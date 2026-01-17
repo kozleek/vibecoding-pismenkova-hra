@@ -4,8 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b0yvwbpls7ea7" path="res://Assets/Icons/question-mark.svg" id="3_158mb"]
 [ext_resource type="Texture2D" uid="uid://dla3xdx73754x" path="res://Assets/Icons/play.svg" id="3_cayip"]
 [ext_resource type="Script" uid="uid://cj7anupkfwyba" path="res://Scripts/menu.gd" id="3_menu"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1rerr"]
+[ext_resource type="PackedScene" uid="uid://bltqgkq15sww8" path="res://Scenes/score.tscn" id="5_score"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_158mb"]
 action = &"answer"
@@ -35,15 +34,16 @@ script = ExtResource("3_menu")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
 
-[node name="Panel" type="PanelContainer" parent="HBoxContainer"]
+[node name="HBoxContainerLeft" type="HBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxEmpty_1rerr")
+theme_override_constants/separation = 10
 
-[node name="ButtonSettings" type="TextureButton" parent="HBoxContainer/Panel"]
+[node name="ButtonSettings" type="TextureButton" parent="HBoxContainer/HBoxContainerLeft"]
 modulate = Color(1, 1, 1, 0.5)
-custom_minimum_size = Vector2(70, 60)
 layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 0
@@ -51,10 +51,16 @@ mouse_default_cursor_shape = 2
 texture_normal = ExtResource("2_xhh6f")
 stretch_mode = 5
 
-[node name="Panel2" type="HBoxContainer" parent="HBoxContainer"]
+[node name="HBoxContainerCenter" parent="HBoxContainer" instance=ExtResource("5_score")]
 layout_mode = 2
 
-[node name="ButtonHelp" type="TextureButton" parent="HBoxContainer/Panel2"]
+[node name="HBoxContainerRight" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="ButtonHelp" type="TextureButton" parent="HBoxContainer/HBoxContainerRight"]
 visible = false
 modulate = Color(1, 1, 1, 0.5)
 layout_mode = 2
@@ -63,7 +69,7 @@ mouse_default_cursor_shape = 2
 shortcut = SubResource("Shortcut_wwsa2")
 texture_normal = ExtResource("3_158mb")
 
-[node name="ButtonPlay" type="TextureButton" parent="HBoxContainer/Panel2"]
+[node name="ButtonPlay" type="TextureButton" parent="HBoxContainer/HBoxContainerRight"]
 modulate = Color(1, 1, 1, 0.5)
 layout_mode = 2
 focus_mode = 0
@@ -71,6 +77,6 @@ mouse_default_cursor_shape = 2
 shortcut = SubResource("Shortcut_jsrd8")
 texture_normal = ExtResource("3_cayip")
 
-[connection signal="pressed" from="HBoxContainer/Panel/ButtonSettings" to="." method="_on_button_settings_pressed"]
-[connection signal="pressed" from="HBoxContainer/Panel2/ButtonHelp" to="." method="_on_button_help_pressed"]
-[connection signal="pressed" from="HBoxContainer/Panel2/ButtonPlay" to="." method="_on_button_play_pressed"]
+[connection signal="pressed" from="HBoxContainer/HBoxContainerLeft/ButtonSettings" to="." method="_on_button_settings_pressed"]
+[connection signal="pressed" from="HBoxContainer/HBoxContainerRight/ButtonHelp" to="." method="_on_button_help_pressed"]
+[connection signal="pressed" from="HBoxContainer/HBoxContainerRight/ButtonPlay" to="." method="_on_button_play_pressed"]

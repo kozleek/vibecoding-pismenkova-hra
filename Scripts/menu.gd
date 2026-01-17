@@ -4,9 +4,9 @@ signal signal_open_settings
 signal signal_play_pressed
 signal signal_help_pressed
 
-@onready var button_play: TextureButton = $HBoxContainer/Panel2/ButtonPlay
-@onready var button_help: TextureButton = $HBoxContainer/Panel2/ButtonHelp
-@onready var button_settings: TextureButton = $HBoxContainer/Panel/ButtonSettings
+@onready var button_play: TextureButton = $HBoxContainer/HBoxContainerRight/ButtonPlay
+@onready var button_help: TextureButton = $HBoxContainer/HBoxContainerRight/ButtonHelp
+@onready var button_settings: TextureButton = $HBoxContainer/HBoxContainerLeft/ButtonSettings
 
 var texture_play: Texture2D = preload("res://Assets/Icons/play.svg")
 var texture_pause: Texture2D = preload("res://Assets/Icons/pause.svg")

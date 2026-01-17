@@ -11,6 +11,7 @@ Písmenková hra je zábavná party aplikace inspirovaná klasickou hrou v kateg
 ## Hlavní funkce
 
 - **Náhodné losování písmen a kategorií** - Aplikace postupně losuje písmeno a kategorii s vizuálními a zvukovými efekty
+- **Počítání skóre** - Sledování bodů pro dva týmy s možností přičítat body myší nebo klávesnicí
 - **Časový limit** - Nastavitelný časovač pro každé kolo (lze vypnout)
 - **Zobrazení odpovědi** - Po skončení kola lze zobrazit správnou odpověď
 - **Více než 70 kategorií** - Rozmanitý výběr kategorií od geografických pojmů po popkulturní odkazy
@@ -32,10 +33,15 @@ Hra obsahuje širokou škálu kategorií:
 ### Klávesové zkratky
 - **Mezerník / Enter / Num Enter** - Start/Stop losování
 - **H** - Zobrazení správné odpovědi (pouze po skončení kola)
+- **PageUp** - Přičtení bodů týmu 1 (červený)
+- **PageDown** - Přičtení bodů týmu 2 (modrý)
 
 ### Tlačítka
 - **Hrej/Stop** - Spuštění nebo zastavení losování
+- **Team 1 (červený)** - Kliknutím přičtete body prvnímu týmu
+- **Team 2 (modrý)** - Kliknutím přičtete body druhému týmu
 - **Nastavení** - Otevření modálního okna s nastavením aplikace
+  - **Vynulovat bodování** - Reset skóre obou týmů na 0
 
 ## Technické informace
 
@@ -50,18 +56,30 @@ Hra obsahuje širokou škálu kategorií:
 3. **Finalizace** - Po zastavení se zobrazí vylosované písmeno a kategorie
 4. **Herní kolo** - Spustí se časovač (pokud je aktivní) pro vymýšlení odpovědi
 5. **Zobrazení odpovědi** - Po skončení kola lze zobrazit příkladnou správnou odpověď
+6. **Počítání bodů** - Po skončení losování/kola lze přičíst body týmům
+
+### Systém skóre
+
+Aplikace podporuje sledování skóre pro dva týmy:
+- **Přičítání bodů** - Body lze přičítat po dokončení losování nebo kola (podle nastavení)
+- **Dva týmy** - Červený tým (Team 1) a modrý tým (Team 2)
+- **Ovládání** - Kliknutím na barevné tlačítko nebo klávesou (PageUp/PageDown)
+- **Jednorázové bodování** - Každý tým může získat body maximálně jednou za kolo
+- **Oboustranné bodování** - Oba týmy mohou získat body ve stejném kole
+- **Perzistence** - Skóre se automaticky ukládá a přetrvává i po restartu aplikace
+- **Reset** - Možnost vynulování skóre v nastavení
+- **Skrytí** - Skóre lze v nastavení kompletně vypnout a skrýt
 
 ### Nastavení aplikace
 
 Aplikace podporuje vlastní nastavení:
-- Rychlost losování
-- Délka herního kola
-- Automatické zastavení
-- Zobrazení bodů
-- Zvukové efekty
-- Rozsah bodů
+- **Přehrávat zvuky** - Zapnutí/vypnutí zvukových efektů
+- **Automatické zastavení losování** - Automatické zastavení po nastavené době
+- **Zobrazovat body** - Zobrazení/skrytí bodového systému a skóre týmů
+- **Zobrazovat odpočet kola** - Zapnutí/vypnutí časového limitu
+- **Vynulovat bodování** - Reset skóre obou týmů
 
-Nastavení se ukládá lokálně a přetrvává mezi spuštěními aplikace.
+Všechna nastavení včetně skóre se ukládají lokálně a přetrvávají mezi spuštěními aplikace.
 
 ## Struktura projektu
 
@@ -73,7 +91,9 @@ Scripts/
 ├── subject.gd        # Logika losování kategorií
 ├── round.gd          # Logika časového kola
 ├── answer.gd         # Zobrazení správných odpovědí
-└── menu.gd           # UI menu
+├── score.gd          # Systém počítání skóre pro dva týmy
+├── menu.gd           # UI menu
+└── modal_settings.gd # Nastavení aplikace
 ```
 
 ## Použité nástroje

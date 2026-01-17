@@ -124,6 +124,10 @@ var is_points_visible: bool = true
 # Povolit odpocet kola?
 var is_round_enabled: bool = true
 
+# Skóre týmů
+var team1_score: int = 0
+var team2_score: int = 0
+
 # Rychlost losování
 var spin_wait_time: float = 0.05
 # Faktor zpomalení losování

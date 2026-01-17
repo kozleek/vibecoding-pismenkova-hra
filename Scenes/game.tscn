@@ -66,4 +66,5 @@ layout_mode = 2
 [connection signal="timeout" from="TimerAutostop" to="." method="_on_timer_autostop_timeout"]
 [connection signal="signal_round_finished" from="Round" to="." method="_on_round_signal_round_finished"]
 [connection signal="signal_open_settings" from="Menu" to="." method="_on_menu_signal_open_settings"]
+[connection signal="signal_help_pressed" from="Menu" to="." method="_on_menu_signal_help_pressed"]
 [connection signal="signal_play_pressed" from="Menu" to="." method="_on_menu_signal_play_pressed"]

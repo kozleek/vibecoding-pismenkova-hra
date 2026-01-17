@@ -58,7 +58,7 @@ mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 32
 theme_override_icons/checked = ExtResource("7_check_on")
 theme_override_icons/unchecked = ExtResource("6_check_off")
-text = "Přehrávat zvuk"
+text = "Přehrávat zvuky"
 
 [node name="CheckAutostop" type="CheckButton" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/SettingsContainer"]
 layout_mode = 2
@@ -67,7 +67,7 @@ mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 32
 theme_override_icons/checked = ExtResource("7_check_on")
 theme_override_icons/unchecked = ExtResource("6_check_off")
-text = "Automatické zastavení"
+text = "Automatické zastavení losování"
 
 [node name="CheckPoints" type="CheckButton" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/SettingsContainer"]
 layout_mode = 2
@@ -76,7 +76,7 @@ mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 32
 theme_override_icons/checked = ExtResource("7_check_on")
 theme_override_icons/unchecked = ExtResource("6_check_off")
-text = "Zobrazit body písmen"
+text = "Zobrazovat body"
 
 [node name="CheckRound" type="CheckButton" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/SettingsContainer"]
 layout_mode = 2
@@ -85,7 +85,7 @@ mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 32
 theme_override_icons/checked = ExtResource("7_check_on")
 theme_override_icons/unchecked = ExtResource("6_check_off")
-text = "Povolit odpočet kola"
+text = "Zobrazovat odpočet kola"
 
 [node name="ButtonClose" type="Button" parent="CenterContainer/Panel/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 80)

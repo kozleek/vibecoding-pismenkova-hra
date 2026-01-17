@@ -60,6 +60,7 @@ func spin_start() -> void:
 	# Aktualizace UI
 	menu.set_play_button_text(true)
 	menu.set_play_button_disabled(false)
+	menu.hide_help_button()
 
 	# Ukončení herního kola a skrytí odpovědi
 	answer.hide()
@@ -113,6 +114,10 @@ func spin_finalize() -> void:
 
 	#letter.points_show()
 
+	# Zobrazíme tlačítko Help pokud není povoleno kolo
+	if not Settings.is_round_enabled:
+		menu.show_help_button()
+
 	# Spustíme odpočet kola
 	round_start()	
 
@@ -132,7 +137,8 @@ func round_end() -> void:
 		print("[Round] Konec kola")
 		is_round_active = false
 		is_round_finished = true
-		menu.set_play_button_disabled(false)	
+		menu.set_play_button_disabled(false)
+		menu.show_help_button()	
 
 # ========================
 # Signály
@@ -168,27 +174,19 @@ func _on_menu_signal_open_settings() -> void:
 	get_tree().paused = true
 
 
+# Tlačítko Help
+func _on_menu_signal_help_pressed() -> void:
+	if (is_round_finished and is_finalize) or (not Settings.is_round_enabled and is_finalize):	
+		print("[Menu:Help] Zobrazení odpovědi (tlačítko)")
+		answer.show_answer(current_subject, current_letter)
+		menu.hide_help_button()
+	else:
+		print("[Menu:Help] Odpověď nelze zobrazit. is_round_enabled: %s, is_round_finished: %s, is_finalize: %s" % [Settings.is_round_enabled, is_round_finished, is_finalize])
+
+
 # Tlačítko Play/Stop
 func _on_menu_signal_play_pressed() -> void:
 	if is_spinning:
 		spin_stop()
 	elif is_finalize and (is_round_finished or not Settings.is_round_enabled):
 		spin_start()
-	
-# ========================
-# Ovládaní aplikace
-# ========================
-	
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("spinning"):
-		if is_spinning == false:
-			spin_start()
-		else:
-			spin_stop()
-
-	if event.is_action_pressed("answer"):		
-		if (is_round_finished == true and is_finalize == true) or (Settings.is_round_enabled == false and is_finalize == true):
-			print("[Input:Answer] Zobrazení odpovědi")
-			answer.show_answer(current_subject, current_letter)
-		else:
-			print("[Input:Answer] Odpověď nelze zobrazit. is_round_enabled: %s, is_round_finished: %s, is_finalize: %s" % [Settings.is_round_enabled, is_round_finished, is_finalize])

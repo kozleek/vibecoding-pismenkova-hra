@@ -1,10 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7ufm12iiqvda"]
+[gd_scene load_steps=10 format=3 uid="uid://c7ufm12iiqvda"]
 
+[ext_resource type="Texture2D" uid="uid://csum06ga15dee" path="res://Assets/Icons/gear.svg" id="2_xhh6f"]
+[ext_resource type="Texture2D" uid="uid://b0yvwbpls7ea7" path="res://Assets/Icons/question-mark.svg" id="3_158mb"]
+[ext_resource type="Texture2D" uid="uid://dla3xdx73754x" path="res://Assets/Icons/play.svg" id="3_cayip"]
 [ext_resource type="Script" uid="uid://cj7anupkfwyba" path="res://Scripts/menu.gd" id="3_menu"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1rerr"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xhh6f"]
+[sub_resource type="InputEventAction" id="InputEventAction_158mb"]
+action = &"answer"
+
+[sub_resource type="Shortcut" id="Shortcut_wwsa2"]
+events = [SubResource("InputEventAction_158mb")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_wwsa2"]
+action = &"spinning"
+
+[sub_resource type="Shortcut" id="Shortcut_jsrd8"]
+events = [SubResource("InputEventAction_wwsa2")]
 
 [node name="Menu" type="MarginContainer"]
 custom_minimum_size = Vector2(1000, 80)
@@ -14,10 +27,10 @@ offset_bottom = 75.0
 grow_horizontal = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
-theme_override_constants/margin_left = 40
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 40
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 script = ExtResource("3_menu")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -28,26 +41,36 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_1rerr")
 
-[node name="ButtonSettings" type="Button" parent="HBoxContainer/Panel"]
+[node name="ButtonSettings" type="TextureButton" parent="HBoxContainer/Panel"]
+modulate = Color(1, 1, 1, 0.5)
+custom_minimum_size = Vector2(70, 60)
 layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 0
 mouse_default_cursor_shape = 2
-theme_override_font_sizes/font_size = 48
-text = "Nastavení"
-flat = true
+texture_normal = ExtResource("2_xhh6f")
+stretch_mode = 5
 
-[node name="Panel2" type="PanelContainer" parent="HBoxContainer"]
+[node name="Panel2" type="HBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_xhh6f")
 
-[node name="ButtonPlay" type="Button" parent="HBoxContainer/Panel2"]
+[node name="ButtonHelp" type="TextureButton" parent="HBoxContainer/Panel2"]
+visible = false
+modulate = Color(1, 1, 1, 0.5)
 layout_mode = 2
 focus_mode = 0
 mouse_default_cursor_shape = 2
-theme_override_font_sizes/font_size = 48
-text = "Hrej"
-flat = true
+shortcut = SubResource("Shortcut_wwsa2")
+texture_normal = ExtResource("3_158mb")
+
+[node name="ButtonPlay" type="TextureButton" parent="HBoxContainer/Panel2"]
+modulate = Color(1, 1, 1, 0.5)
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+shortcut = SubResource("Shortcut_jsrd8")
+texture_normal = ExtResource("3_cayip")
 
 [connection signal="pressed" from="HBoxContainer/Panel/ButtonSettings" to="." method="_on_button_settings_pressed"]
+[connection signal="pressed" from="HBoxContainer/Panel2/ButtonHelp" to="." method="_on_button_help_pressed"]
 [connection signal="pressed" from="HBoxContainer/Panel2/ButtonPlay" to="." method="_on_button_play_pressed"]

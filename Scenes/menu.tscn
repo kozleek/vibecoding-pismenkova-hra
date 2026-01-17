@@ -1,20 +1,53 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7ufm12iiqvda"]
+[gd_scene load_steps=4 format=3 uid="uid://c7ufm12iiqvda"]
 
-[ext_resource type="Theme" uid="uid://ctgkegabwu8l1" path="res://Themes/menu.tres" id="1_xhh6f"]
-[ext_resource type="Texture2D" uid="uid://bjc48rmonlj02" path="res://Assets/Icons/sound_on.svg" id="2_cayip"]
+[ext_resource type="Script" uid="uid://cj7anupkfwyba" path="res://Scripts/menu.gd" id="3_menu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1rerr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xhh6f"]
 
 [node name="Menu" type="MarginContainer"]
 custom_minimum_size = Vector2(1000, 80)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 75.0
+grow_horizontal = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
-theme = ExtResource("1_xhh6f")
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 10
+script = ExtResource("3_menu")
 
-[node name="PanelContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="ButtonSound" type="Button" parent="PanelContainer"]
+[node name="Panel" type="PanelContainer" parent="HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-icon = ExtResource("2_cayip")
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_1rerr")
+
+[node name="ButtonSettings" type="Button" parent="HBoxContainer/Panel"]
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 48
+text = "Nastavení"
 flat = true
-icon_alignment = 1
+
+[node name="Panel2" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_xhh6f")
+
+[node name="ButtonPlay" type="Button" parent="HBoxContainer/Panel2"]
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 48
+text = "Hrej"
+flat = true
+
+[connection signal="pressed" from="HBoxContainer/Panel/ButtonSettings" to="." method="_on_button_settings_pressed"]
+[connection signal="pressed" from="HBoxContainer/Panel2/ButtonPlay" to="." method="_on_button_play_pressed"]

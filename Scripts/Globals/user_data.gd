@@ -44,7 +44,7 @@ func load_settings() -> void:
 			var data = json.data
 			# Načítáme hodnoty a používáme get() s výchozí hodnotou pro bezpečnost
 			Settings.is_sound_enabled = data.get("is_sound_enabled", Settings.is_sound_enabled)
-			Settings.is_mic_muted = data.get("is_mic_enabled", Settings.is_mic_enabled)			
+			Settings.is_mic_enabled = data.get("is_mic_enabled", Settings.is_mic_enabled)			
 			Settings.is_autostop_enabled = data.get("is_autostop_enabled", Settings.is_autostop_enabled)
 			Settings.is_points_visible = data.get("is_points_visible", Settings.is_points_visible)
 			Settings.is_round_enabled = data.get("is_round_enabled", Settings.is_round_enabled)
@@ -54,5 +54,10 @@ func load_settings() -> void:
 				Settings.points_range = Vector2i(data["points_min"], data["points_max"])
 			
 			print("[UserData] Nastavení bylo úspěšně načteno.")
+			print("[UserData] --- is_sound_enabled: ", Settings.is_sound_enabled)			
+			print("[UserData] --- is_autostop_enabled: ", Settings.is_autostop_enabled)
+			print("[UserData] --- is_points_visible: ", Settings.is_points_visible)
+			print("[UserData] --- is_round_enabled: ", Settings.is_round_enabled)
+			print("[UserData] --- points_range: ", Settings.points_range)
 		else:
 			print("[UserData] Chyba při čtení JSONu: ", json.get_error_message())

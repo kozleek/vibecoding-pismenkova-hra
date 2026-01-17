@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://uw6mjftj51xj"]
+[gd_scene load_steps=9 format=3 uid="uid://uw6mjftj51xj"]
 
 [ext_resource type="PackedScene" uid="uid://qho2h8nabdaq" path="res://Scenes/letter.tscn" id="1_ebmjs"]
 [ext_resource type="Script" uid="uid://bs6pkiqbhwhpb" path="res://Scripts/game.gd" id="1_qxrlw"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dod3wlgmdrxsp" path="res://Scenes/answer.tscn" id="4_3dryh"]
 [ext_resource type="PackedScene" uid="uid://0gydjk0qwxke" path="res://Scenes/round.tscn" id="6_i6g32"]
 [ext_resource type="PackedScene" uid="uid://bwshwck4ejy70" path="res://Scenes/modal_settings.tscn" id="7_1l0tm"]
+[ext_resource type="PackedScene" uid="uid://c7ufm12iiqvda" path="res://Scenes/menu.tscn" id="8_menu"]
 
 [node name="Game" type="PanelContainer"]
 anchors_preset = 15
@@ -22,7 +23,6 @@ autostart = true
 
 [node name="TimerAutostop" type="Timer" parent="."]
 one_shot = true
-autostart = true
 
 [node name="Background" parent="." instance=ExtResource("2_wowpa")]
 layout_mode = 2
@@ -30,7 +30,7 @@ layout_mode = 2
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
 theme_override_constants/margin_left = 40
-theme_override_constants/margin_top = 200
+theme_override_constants/margin_top = 180
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 40
 
@@ -51,6 +51,9 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 8
 
+[node name="Menu" parent="." instance=ExtResource("8_menu")]
+layout_mode = 2
+
 [node name="ModalSettings" parent="." instance=ExtResource("7_1l0tm")]
 visible = false
 layout_mode = 2
@@ -62,3 +65,5 @@ layout_mode = 2
 [connection signal="timeout" from="TimerSpin" to="MarginContainer/VBoxContainer/Letter" method="_on_timer_spin_timeout"]
 [connection signal="timeout" from="TimerAutostop" to="." method="_on_timer_autostop_timeout"]
 [connection signal="signal_round_finished" from="Round" to="." method="_on_round_signal_round_finished"]
+[connection signal="signal_open_settings" from="Menu" to="." method="_on_menu_signal_open_settings"]
+[connection signal="signal_play_pressed" from="Menu" to="." method="_on_menu_signal_play_pressed"]

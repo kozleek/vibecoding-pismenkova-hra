@@ -39,7 +39,7 @@ These autoloaded nodes are accessible globally throughout the project:
 - **`Settings`** (`Scripts/Globals/settings.gd`): Game configuration constants and runtime settings
   - Defines `LETTERS_AND_POINTS` dictionary, `SUBJECTS` array with translation keys
   - Contains paths: `SAVEDATA_PATH`, `ANSWERS_PATH`, `SCENE_*_PATH`
-  - Runtime settings: spin timing, round duration, autostop, points visibility
+  - Runtime settings: spin timing, round duration, autostop, points visibility, no-repeat mode
 - **`UserData`** (`Scripts/Globals/user_data.gd`): Saves/loads user preferences to `user://savedata.json`
 - **`Visuals`** (`Scripts/Globals/visuals.gd`): Visual effects (screen shake, pop animations, background colors)
 - **`Audio`** (`Scripts/Globals/audio.gd`): Sound management via AudioServer
@@ -81,6 +81,13 @@ Each component is a class with its own scene and script:
 - After finalize with rounds enabled: Shows "Play" but disabled until round ends
 - During round: Button remains disabled
 
+**No-Repeat Mode**: When enabled (`Settings.is_no_repeat_enabled`), each letter-category combination can only appear once per session:
+- Tracks used combinations in `game.used_combinations` array (format: "LETTER_SUB_CATEGORY")
+- After finalize, checks if combination was already used
+- If used, automatically generates new unused combination
+- When all 1,633 combinations (23 letters × 71 categories) are exhausted, resets the list and starts over
+- Implementation in `game._handle_no_repeat_mode()` and `game._generate_new_combination()`
+
 **Keyboard Controls**:
 - Space/Enter/NumEnter: Start/Stop spinning (bound to `spinning` input action)
 - H key: Show answer when round is finished (bound to `answer` input action)
@@ -109,7 +116,8 @@ The app uses Godot's built-in internationalization:
 User settings are saved as JSON with these fields:
 - `is_sound_enabled`, `is_mic_enabled`, `is_autostop_enabled`
 - `points_min`, `points_max` (Vector2i components)
-- `is_points_visible`, `is_round_enabled`
+- `is_points_visible`, `is_round_enabled`, `is_no_repeat_enabled`
+- `team1_score`, `team2_score`
 
 ## Project Structure Notes
 

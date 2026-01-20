@@ -79,6 +79,7 @@ Aplikace podporuje vlastní nastavení:
 - **Automatické zastavení losování** - Automatické zastavení po nastavené době
 - **Zobrazovat body** - Zobrazení/skrytí bodového systému a skóre týmů
 - **Zobrazovat odpočet kola** - Zapnutí/vypnutí časového limitu
+- **Bez opakování** - Herní mód, kdy každá kombinace písmeno/kategorie je použita max. 1× za session (po vyčerpání všech 1633 kombinací se seznam resetuje)
 - **Vynulovat bodování** - Reset skóre obou týmů
 
 Všechna nastavení včetně skóre se ukládají lokálně a přetrvávají mezi spuštěními aplikace.

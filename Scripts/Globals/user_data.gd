@@ -18,6 +18,7 @@ func save_settings() -> void:
 		"points_max": Settings.points_range.y,
 		"is_points_visible": Settings.is_points_visible,
 		"is_round_enabled": Settings.is_round_enabled,
+		"is_no_repeat_enabled": Settings.is_no_repeat_enabled,
 		"team1_score": Settings.team1_score,
 		"team2_score": Settings.team2_score
 	}
@@ -54,6 +55,7 @@ func load_settings() -> void:
 			Settings.is_autostop_enabled = data.get("is_autostop_enabled", Settings.is_autostop_enabled)
 			Settings.is_points_visible = data.get("is_points_visible", Settings.is_points_visible)
 			Settings.is_round_enabled = data.get("is_round_enabled", Settings.is_round_enabled)
+			Settings.is_no_repeat_enabled = data.get("is_no_repeat_enabled", Settings.is_no_repeat_enabled)
 			Settings.team1_score = data.get("team1_score", Settings.team1_score)
 			Settings.team2_score = data.get("team2_score", Settings.team2_score)
 
@@ -66,6 +68,7 @@ func load_settings() -> void:
 			print("[UserData] --- is_autostop_enabled: ", Settings.is_autostop_enabled)
 			print("[UserData] --- is_points_visible: ", Settings.is_points_visible)
 			print("[UserData] --- is_round_enabled: ", Settings.is_round_enabled)
+			print("[UserData] --- is_no_repeat_enabled: ", Settings.is_no_repeat_enabled)
 			print("[UserData] --- points_range: ", Settings.points_range)
 			print("[UserData] --- team1_score: ", Settings.team1_score)
 			print("[UserData] --- team2_score: ", Settings.team2_score)

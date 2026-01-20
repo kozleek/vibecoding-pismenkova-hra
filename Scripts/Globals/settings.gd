@@ -123,6 +123,8 @@ var points_range: Vector2i = Vector2i(1, 5)
 var is_points_visible: bool = true
 # Povolit odpocet kola?
 var is_round_enabled: bool = true
+# Herní mód "Bez opakování" - každá kombinace písmeno/kategorie max. 1x za session
+var is_no_repeat_enabled: bool = false
 
 # Skóre týmů
 var team1_score: int = 0

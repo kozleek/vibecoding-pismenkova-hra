@@ -26,7 +26,7 @@ script = ExtResource("4_modal")
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="CenterContainer"]
-custom_minimum_size = Vector2(700, 650)
+custom_minimum_size = Vector2(700, 750)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("1_s6q0s")
 
@@ -88,6 +88,15 @@ theme_override_icons/checked = ExtResource("7_check_on")
 theme_override_icons/unchecked = ExtResource("6_check_off")
 text = "Zobrazovat odpočet kola"
 
+[node name="CheckNoRepeat" type="CheckButton" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/SettingsContainer"]
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 32
+theme_override_icons/checked = ExtResource("7_check_on")
+theme_override_icons/unchecked = ExtResource("6_check_off")
+text = "Bez opakování kombinací"
+
 [node name="ButtonScoreReset" type="Button" parent="CenterContainer/Panel/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
@@ -121,5 +130,6 @@ text = "Zavřít"
 [connection signal="toggled" from="CenterContainer/Panel/MarginContainer/VBoxContainer/SettingsContainer/CheckAutostop" to="." method="_on_check_autostop_toggled"]
 [connection signal="toggled" from="CenterContainer/Panel/MarginContainer/VBoxContainer/SettingsContainer/CheckPoints" to="." method="_on_check_points_toggled"]
 [connection signal="toggled" from="CenterContainer/Panel/MarginContainer/VBoxContainer/SettingsContainer/CheckRound" to="." method="_on_check_round_toggled"]
+[connection signal="toggled" from="CenterContainer/Panel/MarginContainer/VBoxContainer/SettingsContainer/CheckNoRepeat" to="." method="_on_check_no_repeat_toggled"]
 [connection signal="pressed" from="CenterContainer/Panel/MarginContainer/VBoxContainer/ButtonScoreReset" to="." method="_on_button_score_reset_pressed"]
 [connection signal="pressed" from="CenterContainer/Panel/MarginContainer/VBoxContainer/ButtonClose" to="." method="_on_button_close_pressed"]

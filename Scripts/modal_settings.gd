@@ -5,6 +5,7 @@ extends PanelContainer
 @onready var check_autostop: CheckButton = $CenterContainer/Panel/MarginContainer/VBoxContainer/SettingsContainer/CheckAutostop
 @onready var check_points: CheckButton = $CenterContainer/Panel/MarginContainer/VBoxContainer/SettingsContainer/CheckPoints
 @onready var check_round: CheckButton = $CenterContainer/Panel/MarginContainer/VBoxContainer/SettingsContainer/CheckRound
+@onready var check_no_repeat: CheckButton = $CenterContainer/Panel/MarginContainer/VBoxContainer/SettingsContainer/CheckNoRepeat
 
 # Flag indikující, zda došlo ke změně nastavení (při zavření dialogu se reloadne scéna)
 var settings_changed: bool = false
@@ -21,6 +22,7 @@ func _sync_ui_with_settings() -> void:
 	check_autostop.set_pressed_no_signal(Settings.is_autostop_enabled)
 	check_points.set_pressed_no_signal(Settings.is_points_visible)
 	check_round.set_pressed_no_signal(Settings.is_round_enabled)
+	check_no_repeat.set_pressed_no_signal(Settings.is_no_repeat_enabled)
 
 # Otevře dialog s nastavením
 # Synchronizuje UI s aktuálním stavem a zobrazí modal
@@ -84,6 +86,11 @@ func _on_check_points_toggled(toggled_on: bool) -> void:
 # Callback pro změnu zapnutí/vypnutí kol
 func _on_check_round_toggled(toggled_on: bool) -> void:
 	Settings.is_round_enabled = toggled_on
+	_save_setting_change()
+
+# Callback pro změnu herního módu "Bez opakování"
+func _on_check_no_repeat_toggled(toggled_on: bool) -> void:
+	Settings.is_no_repeat_enabled = toggled_on
 	_save_setting_change()
 
 # ========================

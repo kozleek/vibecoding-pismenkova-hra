@@ -116,13 +116,15 @@ var is_sound_enabled: bool = true
 # Ztlumena řeč
 var is_mic_enabled: bool = true
 # Povoleni autostop funcionality
-var is_autostop_enabled: bool = false
+var is_autostop_enabled: bool = true
 # Rozsah náhodných bodů pro písmena
 var points_range: Vector2i = Vector2i(1, 5)
 # Zobrazovat hodnoty pismen?
 var is_points_visible: bool = true
 # Povolit odpocet kola?
 var is_round_enabled: bool = true
+# Herní mód "Bez opakování" - každá kombinace písmeno/kategorie max. 1x za session
+var is_no_repeat_enabled: bool = true
 
 # Skóre týmů
 var team1_score: int = 0

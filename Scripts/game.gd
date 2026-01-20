@@ -29,6 +29,12 @@ var current_subject: String = ""
 var current_answer: String = ""
 var current_points: int = 0
 
+# Sledování použitých kombinací pro mód "Bez opakování"
+# Formát: "PISMENO_SUB_KATEGORIE" např. "A_SUB_MESTO"
+var used_combinations: Array[String] = []
+# Celkový počet možných kombinací (23 písmen × 71 kategorií)
+const TOTAL_COMBINATIONS: int = 1633
+
 func _ready() -> void:
 	randomize()
 
@@ -107,6 +113,10 @@ func spin_finalize() -> void:
 	current_answer = answer.get_answer(current_subject, current_letter)
 	current_points = letter.get_current_points()
 
+	# Kontrola módu "Bez opakování"
+	if Settings.is_no_repeat_enabled:
+		_handle_no_repeat_mode()
+
 	print("[Game] --- Písmeno: ", current_letter)
 	print("[Game] --- Slovo: ", current_subject)
 	print("[Game] --- Odpověď: ", current_answer)
@@ -145,7 +155,62 @@ func round_end() -> void:
 		menu.set_play_button_disabled(false)
 		menu.show_help_button()
 		# Po skončení kola umožníme přičítání bodů
-		score.enable_scoring(current_points)	
+		score.enable_scoring(current_points)
+
+# ========================
+# Logika módu "Bez opakování"
+# ========================
+
+# Zpracuje mód "Bez opakování" - sleduje použité kombinace
+# Pokud byla kombinace již použita, vygeneruje novou
+func _handle_no_repeat_mode() -> void:
+	var combination_key = current_letter + "_" + current_subject
+
+	# Kontrola, zda kombinace již byla použita
+	if combination_key in used_combinations:
+		print("[Game:NoRepeat] Kombinace %s již byla použita, generuji novou" % combination_key)
+		# Vylosuj novou kombinaci (opakuj dokud nenajdeme nepoužitou)
+		_generate_new_combination()
+	else:
+		# Přidej novou kombinaci do seznamu použitých
+		used_combinations.append(combination_key)
+		print("[Game:NoRepeat] Nová kombinace: %s (%d/%d použitých)" % [combination_key, used_combinations.size(), TOTAL_COMBINATIONS])
+
+		# Pokud jsme vyčerpali všechny kombinace, resetuj seznam
+		if used_combinations.size() >= TOTAL_COMBINATIONS:
+			print("[Game:NoRepeat] Vyčerpány všechny kombinace, resetuji seznam")
+			used_combinations.clear()
+
+# Generuje novou nepoužitou kombinaci
+# Pokud nejsou k dispozici žádné nepoužité kombinace, resetuje seznam
+func _generate_new_combination() -> void:
+	var max_attempts = 100
+	var attempts = 0
+
+	# Pokusíme se najít nepoužitou kombinaci
+	while attempts < max_attempts:
+		letter.draw_letter()
+		subject.draw_subject()
+
+		current_letter = letter.get_current_letter()
+		current_subject = subject.get_current_subject()
+		var combination_key = current_letter + "_" + current_subject
+
+		# Pokud jsme našli nepoužitou kombinaci, použijeme ji
+		if combination_key not in used_combinations:
+			used_combinations.append(combination_key)
+			current_answer = answer.get_answer(current_subject, current_letter)
+			current_points = letter.get_current_points()
+			print("[Game:NoRepeat] Nová kombinace nalezena: %s" % combination_key)
+			return
+
+		attempts += 1
+
+	# Pokud jsme nenašli nepoužitou kombinaci po 100 pokusech,
+	# pravděpodobně jsme vyčerpali všechny možnosti - resetuj seznam
+	print("[Game:NoRepeat] Nenalezena žádná nepoužitá kombinace, resetuji seznam")
+	used_combinations.clear()
+	used_combinations.append(current_letter + "_" + current_subject)
 
 # ========================
 # Signály

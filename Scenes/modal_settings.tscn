@@ -120,6 +120,7 @@ theme_override_styles/pressed = ExtResource("7_khk3q")
 theme_override_styles/hover = ExtResource("7_khk3q")
 theme_override_styles/disabled = ExtResource("7_khk3q")
 theme_override_styles/focus = ExtResource("7_khk3q")
+text = "Čeština"
 
 [node name="ButtonLanguageEN" type="Button" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/LanguageContainer"]
 custom_minimum_size = Vector2(0, 80)
@@ -141,6 +142,51 @@ theme_override_styles/pressed_mirrored = ExtResource("7_khk3q")
 theme_override_styles/hover = ExtResource("7_khk3q")
 theme_override_styles/disabled = ExtResource("7_khk3q")
 theme_override_styles/focus = ExtResource("7_khk3q")
+text = "English"
+
+[node name="ButtonLanguageFR" type="Button" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/LanguageContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.8156863, 0.54901963, 0.32941177, 1)
+theme_override_colors/font_focus_color = Color(0.8156863, 0.54901963, 0.32941177, 1)
+theme_override_colors/font_pressed_color = Color(0.8156863, 0.54901963, 0.32941177, 1)
+theme_override_colors/font_hover_color = Color(0.8156863, 0.54901963, 0.32941177, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.8156863, 0.54901963, 0.32941177, 1)
+theme_override_colors/font_disabled_color = Color(0.8156863, 0.54901963, 0.32941177, 0.54509807)
+theme_override_fonts/font = ExtResource("2_110uf")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("7_khk3q")
+theme_override_styles/pressed = ExtResource("7_khk3q")
+theme_override_styles/pressed_mirrored = ExtResource("7_khk3q")
+theme_override_styles/hover = ExtResource("7_khk3q")
+theme_override_styles/disabled = ExtResource("7_khk3q")
+theme_override_styles/focus = ExtResource("7_khk3q")
+text = "Français"
+
+[node name="ButtonLanguageES" type="Button" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/LanguageContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.8156863, 0.54901963, 0.32941177, 1)
+theme_override_colors/font_focus_color = Color(0.8156863, 0.54901963, 0.32941177, 1)
+theme_override_colors/font_pressed_color = Color(0.8156863, 0.54901963, 0.32941177, 1)
+theme_override_colors/font_hover_color = Color(0.8156863, 0.54901963, 0.32941177, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.8156863, 0.54901963, 0.32941177, 1)
+theme_override_colors/font_disabled_color = Color(0.8156863, 0.54901963, 0.32941177, 0.54509807)
+theme_override_fonts/font = ExtResource("2_110uf")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("7_khk3q")
+theme_override_styles/pressed = ExtResource("7_khk3q")
+theme_override_styles/pressed_mirrored = ExtResource("7_khk3q")
+theme_override_styles/hover = ExtResource("7_khk3q")
+theme_override_styles/disabled = ExtResource("7_khk3q")
+theme_override_styles/focus = ExtResource("7_khk3q")
+text = "Español"
 
 [node name="ButtonScoreReset" type="Button" parent="CenterContainer/Panel/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 80)
@@ -178,5 +224,7 @@ text = "Zavřít"
 [connection signal="toggled" from="CenterContainer/Panel/MarginContainer/VBoxContainer/SettingsContainer/CheckNoRepeat" to="." method="_on_check_no_repeat_toggled"]
 [connection signal="pressed" from="CenterContainer/Panel/MarginContainer/VBoxContainer/LanguageContainer/ButtonLanguageCS" to="." method="_on_button_language_cs_pressed"]
 [connection signal="pressed" from="CenterContainer/Panel/MarginContainer/VBoxContainer/LanguageContainer/ButtonLanguageEN" to="." method="_on_button_language_en_pressed"]
+[connection signal="pressed" from="CenterContainer/Panel/MarginContainer/VBoxContainer/LanguageContainer/ButtonLanguageFR" to="." method="_on_button_language_fr_pressed"]
+[connection signal="pressed" from="CenterContainer/Panel/MarginContainer/VBoxContainer/LanguageContainer/ButtonLanguageES" to="." method="_on_button_language_es_pressed"]
 [connection signal="pressed" from="CenterContainer/Panel/MarginContainer/VBoxContainer/ButtonScoreReset" to="." method="_on_button_score_reset_pressed"]
 [connection signal="pressed" from="CenterContainer/Panel/MarginContainer/VBoxContainer/ButtonClose" to="." method="_on_button_close_pressed"]

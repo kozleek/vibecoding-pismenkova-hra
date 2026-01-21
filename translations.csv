@@ -1,90 +1,92 @@
-keys,cs,en
-SUB_SPORTOVEC,Sportovec,Athlete
-SUB_HLAVNI_MESTO,Hlavní město,Capital City
-SUB_STAT,Stát,Country
-SUB_POLITIK,Politik,Politician
-SUB_SPISOVATEL,Spisovatel,Writer
-SUB_REKA,Řeka,River
-SUB_HORA,Hora,Mountain
-SUB_SKOLNI_POMUCKA,Školní pomůcka,School Supplies
-SUB_MISTNOST,Místnost,Room
-SUB_DOPRAVNI_PROSTREDEK,Dopravní prostředek,Vehicle
-SUB_POCASI,Počasí,Weather
-SUB_CLEN_RODINY,Člen rodiny,Family Member
-SUB_POTRAVINA,Potravina,Food
-SUB_SKOLNI_PREDMET,Školní předmět,School Subject
-SUB_SKLADATEL,Skladatel,Composer
-SUB_OVOCE,Ovoce,Fruit
-SUB_NABYTEK,Nábytek,Furniture
-SUB_OBLECENI,Oblečení,Clothing
-SUB_TECHNOLOGIE,Technologie,Technology
-SUB_BARVA,Barva,Color
-SUB_FILM,Film,Movie
-SUB_POHADKOVA_POSTAVA,Pohádková postava,Fairy Tale Character
-SUB_PISNICKA,Písnička,Song
-SUB_ZPEVAK_SKUPINA,Zpěvák / Skupina,Singer / Band
-SUB_HMYZ,Hmyz,Insect
-SUB_SAVEC,Savec,Mammal
-SUB_PTAK,Pták,Bird
-SUB_PLAZ,Plaz,Reptile
-SUB_CAST_TELA,Část těla,Body Part
-SUB_SPORTOVNI_VYBAVENI,Sportovní vybavení,Sports Equipment
-SUB_SPORT,Sport,Sport
-SUB_ZELENINA,Zelenina,Vegetable
-SUB_TV_SERIAL,TV Seriál,TV Series
-SUB_MUZSKE_JMENO,Mužské jméno,Male Name
-SUB_ZENSKE_JMENO,Ženské jméno,Female Name
-SUB_TRADICE,Tradice,Tradition
-SUB_NAPOJE,Nápoje,Beverages
-SUB_PECIVO,Pečivo,Pastry
-SUB_HRACKA,Hračka,Toy
-SUB_MATERIAL,Materiál,Material
-SUB_KORENI,Koření,Spice
-SUB_ZVIRE,Zvíře,Animal
-SUB_STROM,Strom,Tree
-SUB_ROSTLINA,Rostlina,Plant
-SUB_VELICINA,Veličina,Quantity
-SUB_NEMOC,Nemoc,Disease
-SUB_ZDRAVOTNI_POTREBY,Zdravotní potřeby,Medical Supplies
-SUB_PROFESE,Profese,Profession
-SUB_LEK,Lék,Medicine
-SUB_MENA,Měna,Currency
-SUB_VLASTNOST,Vlastnost,Trait
-SUB_KONICEK,Koníček,Hobby
-SUB_POVOLANI,Povolání,Occupation
-SUB_CINNOST,Činnost,Activity
-SUB_NASTROJ,Nástroj,Tool
-SUB_CHEMICKY_PRVEK,Chemický prvek,Chemical Element
-SUB_HEREC,Herec,Actor
-SUB_POCITACOVA_HRA,Počítačová hra,Video Game
-SUB_KOMIX,Komiks,Comic Book
-SUB_KNIHA,Kniha,Book
-SUB_SKUPINA,Hudební skupina,Group
-SUB_SUPERHRDINA,Superhrdina,Superhero
-SUB_VEDEC,Vědec,Scientist
-SUB_FIRMA_ZNACKA,Firma / Značka,Company / Brand
-SUB_OBCHODNI_RETEZEC,Obchodní řetězec,Retail Chain
-SUB_HUDEBNI_NASTROJ,Hudební nástroj,Musical Instrument
-SUB_LITERALNI_ZANR,Literární žánr,Literary Genre
-SUB_EMOCE,Emoce,Emotion
-SUB_NALADA,Nálada,Mood
-SUB_STROM_GENERAL,Strom (obecně),Tree (General)
-SUB_MISTO_PAMATKA,Místo / Památka,Place / Landmark
-SUB_JIDLO_POKRM,Jídlo / Pokrm,Dish / Meal
-SUB_HISTORICKA_UDALOST,Historická událost,Historical Event
-SUB_DINOSAURUS,Dinosaurus,Dinosaur
-SUB_PLANETA,Planeta,Planet
-SUB_BAJE_A_POVESTI,Báje a pověsti,Myths and Legends
-SUB_SPORTOVNI_TYM,Sportovní tým,Sports Team
-UI_POCET_PISMEN,Počet písmen?,Number of letters?
-UI_SEC,sec.,sec.
-UI_SETTINGS_SOUND,Přehrávat zvuky,Play Sounds
-UI_SETTINGS_AUTOSTOP,Automatické zastavení losování,Auto-stop Drawing
-UI_SETTINGS_POINTS,Zobrazovat body,Show Points
-UI_SETTINGS_ROUND,Zobrazovat odpočet kola,Show Round Timer
-UI_SETTINGS_NO_REPEAT,Bez opakování kombinací,No Repeat Combinations
-UI_SETTINGS_LANGUAGE,Jazyk / Language,Language / Jazyk
-UI_SETTINGS_RESET_SCORE,Vynulovat bodování,Reset Score
-UI_SETTINGS_CLOSE,Zavřít,Close
-UI_LANG_CZECH,Čeština,Czech
-UI_LANG_ENGLISH,English,English
+keys,cs,en,fr,es
+SUB_SPORTOVEC,Sportovec,Athlete,Athlète,Atleta
+SUB_HLAVNI_MESTO,Hlavní město,Capital City,Capitale,Capital
+SUB_STAT,Stát,Country,Pays,País
+SUB_POLITIK,Politik,Politician,Politicien,Político
+SUB_SPISOVATEL,Spisovatel,Writer,Écrivain,Escritor
+SUB_REKA,Řeka,River,Rivière,Río
+SUB_HORA,Hora,Mountain,Montagne,Montaña
+SUB_SKOLNI_POMUCKA,Školní pomůcka,School Supplies,Fournitures scolaires,Material escolar
+SUB_MISTNOST,Místnost,Room,Pièce,Habitación
+SUB_DOPRAVNI_PROSTREDEK,Dopravní prostředek,Vehicle,Véhicule,Vehículo
+SUB_POCASI,Počasí,Weather,Météo,Clima
+SUB_CLEN_RODINY,Člen rodiny,Family Member,Membre de la famille,Miembro de la familia
+SUB_POTRAVINA,Potravina,Food,Aliment,Alimento
+SUB_SKOLNI_PREDMET,Školní předmět,School Subject,Matière scolaire,Asignatura
+SUB_SKLADATEL,Skladatel,Composer,Compositeur,Compositor
+SUB_OVOCE,Ovoce,Fruit,Fruit,Fruta
+SUB_NABYTEK,Nábytek,Furniture,Meuble,Mueble
+SUB_OBLECENI,Oblečení,Clothing,Vêtement,Ropa
+SUB_TECHNOLOGIE,Technologie,Technology,Technologie,Tecnología
+SUB_BARVA,Barva,Color,Couleur,Color
+SUB_FILM,Film,Movie,Film,Película
+SUB_POHADKOVA_POSTAVA,Pohádková postava,Fairy Tale Character,Personnage de conte,Personaje de cuento
+SUB_PISNICKA,Písnička,Song,Chanson,Canción
+SUB_ZPEVAK_SKUPINA,Zpěvák / Skupina,Singer / Band,Chanteur / Groupe,Cantante / Grupo
+SUB_HMYZ,Hmyz,Insect,Insecte,Insecto
+SUB_SAVEC,Savec,Mammal,Mammifère,Mamífero
+SUB_PTAK,Pták,Bird,Oiseau,Pájaro
+SUB_PLAZ,Plaz,Reptile,Reptile,Reptil
+SUB_CAST_TELA,Část těla,Body Part,Partie du corps,Parte del cuerpo
+SUB_SPORTOVNI_VYBAVENI,Sportovní vybavení,Sports Equipment,Équipement sportif,Equipamiento deportivo
+SUB_SPORT,Sport,Sport,Sport,Deporte
+SUB_ZELENINA,Zelenina,Vegetable,Légume,Verdura
+SUB_TV_SERIAL,TV Seriál,TV Series,Série TV,Serie de TV
+SUB_MUZSKE_JMENO,Mužské jméno,Male Name,Prénom masculin,Nombre masculino
+SUB_ZENSKE_JMENO,Ženské jméno,Female Name,Prénom féminin,Nombre femenino
+SUB_TRADICE,Tradice,Tradition,Tradition,Tradición
+SUB_NAPOJE,Nápoje,Beverages,Boissons,Bebidas
+SUB_PECIVO,Pečivo,Pastry,Pâtisserie,Bollería
+SUB_HRACKA,Hračka,Toy,Jouet,Juguete
+SUB_MATERIAL,Materiál,Material,Matériau,Material
+SUB_KORENI,Koření,Spice,Épice,Especia
+SUB_ZVIRE,Zvíře,Animal,Animal,Animal
+SUB_STROM,Strom,Tree,Arbre,Árbol
+SUB_ROSTLINA,Rostlina,Plant,Plante,Planta
+SUB_VELICINA,Veličina,Quantity,Grandeur,Magnitud
+SUB_NEMOC,Nemoc,Disease,Maladie,Enfermedad
+SUB_ZDRAVOTNI_POTREBY,Zdravotní potřeby,Medical Supplies,Fournitures médicales,Suministros médicos
+SUB_PROFESE,Profese,Profession,Profession,Profesión
+SUB_LEK,Lék,Medicine,Médicament,Medicamento
+SUB_MENA,Měna,Currency,Monnaie,Moneda
+SUB_VLASTNOST,Vlastnost,Trait,Trait de caractère,Rasgo
+SUB_KONICEK,Koníček,Hobby,Passe-temps,Pasatiempo
+SUB_POVOLANI,Povolání,Occupation,Métier,Ocupación
+SUB_CINNOST,Činnost,Activity,Activité,Actividad
+SUB_NASTROJ,Nástroj,Tool,Outil,Herramienta
+SUB_CHEMICKY_PRVEK,Chemický prvek,Chemical Element,Élément chimique,Elemento químico
+SUB_HEREC,Herec,Actor,Acteur,Actor
+SUB_POCITACOVA_HRA,Počítačová hra,Video Game,Jeu vidéo,Videojuego
+SUB_KOMIX,Komiks,Comic Book,Bande dessinée,Cómic
+SUB_KNIHA,Kniha,Book,Livre,Libro
+SUB_SKUPINA,Hudební skupina,Group,Groupe musical,Grupo musical
+SUB_SUPERHRDINA,Superhrdina,Superhero,Super-héros,Superhéroe
+SUB_VEDEC,Vědec,Scientist,Scientifique,Científico
+SUB_FIRMA_ZNACKA,Firma / Značka,Company / Brand,Entreprise / Marque,Empresa / Marca
+SUB_OBCHODNI_RETEZEC,Obchodní řetězec,Retail Chain,Chaîne de magasins,Cadena comercial
+SUB_HUDEBNI_NASTROJ,Hudební nástroj,Musical Instrument,Instrument de musique,Instrumento musical
+SUB_LITERALNI_ZANR,Literární žánr,Literary Genre,Genre littéraire,Género literario
+SUB_EMOCE,Emoce,Emotion,Émotion,Emoción
+SUB_NALADA,Nálada,Mood,Humeur,Estado de ánimo
+SUB_STROM_GENERAL,Strom (obecně),Tree (General),Arbre (général),Árbol (general)
+SUB_MISTO_PAMATKA,Místo / Památka,Place / Landmark,Lieu / Monument,Lugar / Monumento
+SUB_JIDLO_POKRM,Jídlo / Pokrm,Dish / Meal,Plat / Repas,Plato / Comida
+SUB_HISTORICKA_UDALOST,Historická událost,Historical Event,Événement historique,Evento histórico
+SUB_DINOSAURUS,Dinosaurus,Dinosaur,Dinosaure,Dinosaurio
+SUB_PLANETA,Planeta,Planet,Planète,Planeta
+SUB_BAJE_A_POVESTI,Báje a pověsti,Myths and Legends,Mythes et légendes,Mitos y leyendas
+SUB_SPORTOVNI_TYM,Sportovní tým,Sports Team,Équipe sportive,Equipo deportivo
+UI_POCET_PISMEN,Počet písmen?,Number of letters?,Nombre de lettres ?,¿Número de letras?
+UI_SEC,sec.,sec.,sec.,seg.
+UI_SETTINGS_SOUND,Přehrávat zvuky,Play Sounds,Jouer les sons,Reproducir sonidos
+UI_SETTINGS_AUTOSTOP,Automatické zastavení losování,Auto-stop Drawing,Arrêt automatique du tirage,Detención automática del sorteo
+UI_SETTINGS_POINTS,Zobrazovat body,Show Points,Afficher les points,Mostrar puntos
+UI_SETTINGS_ROUND,Zobrazovat odpočet kola,Show Round Timer,Afficher le compte à rebours,Mostrar temporizador de ronda
+UI_SETTINGS_NO_REPEAT,Bez opakování kombinací,No Repeat Combinations,Sans répétition des combinaisons,Sin repetición de combinaciones
+UI_SETTINGS_LANGUAGE,Jazyk / Language,Language / Jazyk,Langue / Language,Idioma / Language
+UI_SETTINGS_RESET_SCORE,Vynulovat bodování,Reset Score,Réinitialiser le score,Reiniciar puntuación
+UI_SETTINGS_CLOSE,Zavřít,Close,Fermer,Cerrar
+UI_LANG_CZECH,Čeština,Čeština,Čeština,Čeština
+UI_LANG_ENGLISH,English,English,English,English
+UI_LANG_FRENCH,Français,Français,Français,Français
+UI_LANG_SPANISH,Español,Español,Español,Español

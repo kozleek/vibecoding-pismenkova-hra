@@ -154,7 +154,7 @@ var round_wait_time: float = 5.0
 # Podporované jazyky: "cs" (čeština), "en" (angličtina)
 func change_language(language_code: String) -> void:
 	# Validace jazyka
-	if language_code not in ["cs", "en"]:
+	if language_code not in ["cs", "en", "fr", "es"]:
 		push_warning("[Settings] Nepodporovaný jazyk: %s. Použivám 'cs'." % language_code)
 		language_code = "cs"
 

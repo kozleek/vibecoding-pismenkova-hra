@@ -10,6 +10,8 @@ extends PanelContainer
 # Odkazy na tlačítka pro výběr jazyka
 @onready var button_language_cs: Button = $CenterContainer/Panel/MarginContainer/VBoxContainer/LanguageContainer/ButtonLanguageCS
 @onready var button_language_en: Button = $CenterContainer/Panel/MarginContainer/VBoxContainer/LanguageContainer/ButtonLanguageEN
+@onready var button_language_fr: Button = $CenterContainer/Panel/MarginContainer/VBoxContainer/LanguageContainer/ButtonLanguageFR
+@onready var button_language_es: Button = $CenterContainer/Panel/MarginContainer/VBoxContainer/LanguageContainer/ButtonLanguageES
 
 # Odkazy na ostatní tlačítka
 @onready var button_score_reset: Button = $CenterContainer/Panel/MarginContainer/VBoxContainer/ButtonScoreReset
@@ -39,6 +41,8 @@ func _refresh_ui_texts() -> void:
 	# Nastavení textu jazykových tlačítek
 	button_language_cs.text = tr("UI_LANG_CZECH")
 	button_language_en.text = tr("UI_LANG_ENGLISH")
+	button_language_fr.text = tr("UI_LANG_FRENCH")
+	button_language_es.text = tr("UI_LANG_SPANISH")
 
 	# Zvýraznění aktivního jazyka
 	_update_language_buttons()
@@ -143,28 +147,44 @@ func _on_button_language_en_pressed() -> void:
 	Settings.change_language("en")
 	_save_setting_change()
 
+# Callback pro tlačítko Fr - přepne na francouštinu
+func _on_button_language_fr_pressed() -> void:
+	Settings.change_language("fr")
+	_save_setting_change()
+
+# Callback pro tlačítko ES - přepne na španělštinu
+func _on_button_language_es_pressed() -> void:
+	Settings.change_language("es")
+	_save_setting_change()
+
 # Callback pro signál změny jazyka - okamžitě refreshne UI
 func _on_language_changed(_language_code: String) -> void:
 	_refresh_ui_texts()
 
 # Aktualizuje vizuální stav jazykových tlačítek
-# Zvýrazní aktivní jazyk pomocí modulate (průhlednost)
+# Aktuálně vybraný jazyk je disabled, ostatní enabled
+# Dynamické řešení - funguje pro libovolný počet jazyků
 func _update_language_buttons() -> void:
-	if Settings.current_language == "cs":
-		button_language_en.modulate.a = 1.0  # Plně viditelné = aktivní
-		button_language_cs.modulate.a = 0.5  # Průhledné = neaktivní
-		button_language_en.disabled = false
-		button_language_cs.disabled = true
-		button_language_en.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
-		button_language_cs.mouse_default_cursor_shape = Control.CURSOR_FORBIDDEN
-	else:
-		button_language_en.modulate.a = 0.5  # Průhledné = neaktivní
-		button_language_cs.modulate.a = 1.0  # Plně viditelné = aktivní
-		button_language_en.disabled = true
-		button_language_cs.disabled = false
-		button_language_en.mouse_default_cursor_shape = Control.CURSOR_FORBIDDEN
-		button_language_cs.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
-	
+	# Dictionary mapující tlačítka na kódy jazyků
+	var language_buttons = {
+		button_language_cs: "cs",
+		button_language_en: "en",
+		button_language_fr: "fr",
+		button_language_es: "es"
+	}
+
+	# Iterace přes všechna jazyková tlačítka
+	for button in language_buttons:
+		var lang_code = language_buttons[button]
+
+		if lang_code == Settings.current_language:
+			# Aktuální jazyk - disabled, nelze kliknout
+			button.disabled = true
+			button.mouse_default_cursor_shape = Control.CURSOR_FORBIDDEN
+		else:
+			# Ostatní jazyky - enabled, lze kliknout
+			button.disabled = false
+			button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 # ========================
 # Ovládání dialogu
 # ========================

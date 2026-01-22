@@ -8,7 +8,7 @@ Interaktivní aplikace pro hru v kategoriích vytvořená v Godot enginu.
 
 ## Popis
 
-Písmenková hra je zábavná party aplikace inspirovaná klasickou hrou v kategoriích. Aplikace náhodně vylosuje písmeno a kategorii (např. "Město", "Zvíře", "Sportovec"), po kterém následuje časový limit pro vymyšlení odpovědi. Ideální pro hraní s přáteli nebo ve větší skupině.
+Písmenková hra je zábavná party aplikace inspirovaná klasickou hrou v kategoriích. Aplikace náhodně vylosuje písmeno a kategorii (např. "Město", "Zvíře", "Sportovec"), po kterém následuje časový limit pro vymyšlení odpovědi. Ideální pro hraní s přáteli, ve školní třídě nebo ve větší skupině.
 
 ## Hlavní funkce
 
@@ -37,21 +37,17 @@ Hra obsahuje širokou škálu kategorií:
 ### Klávesové zkratky
 - **Mezerník / Enter / Num Enter** - Start/Stop losování
 - **H** - Zobrazení správné odpovědi (pouze po skončení kola, dostupné jen v české verzi)
-- **PageUp** - Přičtení bodů týmu 1 (červený)
-- **PageDown** - Přičtení bodů týmu 2 (modrý)
+- **Šipka doleva** - Přičtení bodů týmu 1 (červený)
+- **Šipka doprava** - Přičtení bodů týmu 2 (modrý)
 
 ### Tlačítka
-- **Hrej/Stop** - Spuštění nebo zastavení losování
+- **Hrej/Stop** - Spuštění nebo zastavení losování, lze kliknout kdekoliv na obrazovce
 - **Team 1 (červený)** - Kliknutím přičtete body prvnímu týmu
 - **Team 2 (modrý)** - Kliknutím přičtete body druhému týmu
 - **Nastavení** - Otevření modálního okna s nastavením aplikace
   - **Vynulovat bodování** - Reset skóre obou týmů na 0
 
 ## Technické informace
-
-### Požadavky
-- Godot Engine 4.5 nebo novější
-- Rozlišení: 1920x1080 (s canvas stretch módem)
 
 ### Herní mechanika
 
@@ -67,11 +63,11 @@ Hra obsahuje širokou škálu kategorií:
 Aplikace podporuje sledování skóre pro dva týmy:
 - **Přičítání bodů** - Body lze přičítat po dokončení losování nebo kola (podle nastavení)
 - **Dva týmy** - Červený tým (Team 1) a modrý tým (Team 2)
-- **Ovládání** - Kliknutím na barevné tlačítko nebo klávesou (PageUp/PageDown)
+- **Ovládání** - Kliknutím na tlačítko s barvou týmu nebo klávesou (Šipka vlevo/Šipka vpravo)
 - **Jednorázové bodování** - Každý tým může získat body maximálně jednou za kolo
 - **Oboustranné bodování** - Oba týmy mohou získat body ve stejném kole
 - **Perzistence** - Skóre se automaticky ukládá a přetrvává i po restartu aplikace
-- **Reset** - Možnost vynulování skóre v nastavení
+- **Reset** - Možnost vynulování skóre v nastavení aplikace
 - **Skrytí** - Skóre lze v nastavení kompletně vypnout a skrýt
 
 ### Nastavení aplikace
@@ -87,25 +83,11 @@ Aplikace podporuje vlastní nastavení:
 
 Všechna nastavení včetně skóre a jazyka se ukládají lokálně a přetrvávají mezi spuštěními aplikace.
 
-## Struktura projektu
-
-```
-Scripts/
-├── Globals/           # Globální systémy (nastavení, zvuky, vizuální efekty)
-├── game.gd           # Hlavní herní logika
-├── letter.gd         # Logika losování písmen
-├── subject.gd        # Logika losování kategorií
-├── round.gd          # Logika časového kola
-├── answer.gd         # Zobrazení správných odpovědí
-├── score.gd          # Systém počítání skóre pro dva týmy
-├── menu.gd           # UI menu
-└── modal_settings.gd # Nastavení aplikace
-```
-
 ## Použité nástroje
 
 - **Godot Engine 4.5** - Herní engine pro vývoj aplikace
-- **ChatGPT** - Odpovědi byly předgenerované pomocí AI (ChatGPT 5 mini)
+- **Claude Code** - AI asistent pro vibecoding
+- **ChatGPT** - Odpovědi byly předgenerované pomocí AI (Model: ChatGPT 5 mini)
 - **Zvuky** - [Pixabay](https://pixabay.com/)
 - **Písma**: [Caveat Brush](https://fonts.google.com/specimen/Caveat+Brush) a [Titan One](https://fonts.google.com/specimen/Titan+One)
 - **Ikony**: [Phosphoricons](https://phosphoricons.com/)

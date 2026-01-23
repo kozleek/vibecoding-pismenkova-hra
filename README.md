@@ -15,12 +15,12 @@ Písmenková hra je zábavná party aplikace inspirovaná klasickou hrou v kateg
 - **Náhodné losování písmen a kategorií** - Aplikace postupně losuje písmeno a kategorii s vizuálními a zvukovými efekty
 - **Počítání skóre** - Sledování bodů pro dva týmy s možností přičítat body myší nebo klávesnicí
 - **Časový limit** - Nastavitelný časovač pro každé kolo (lze vypnout)
-- **Zobrazení odpovědi** - Po skončení kola lze zobrazit správnou odpověď (pouze v české verzi*)
+- **Zobrazení odpovědi** - Po skončení kola lze zobrazit správnou odpověď (pouze v české a anglické verzi)
 - **Více než 70 kategorií** - Rozmanitý výběr kategorií od geografických pojmů po popkulturní odkazy
-- **Jazyková podpora** - Čeština a angličtina
+- **Jazyková podpora** - Čeština, angličtina, francouština a španělština
 - **Nastavitelné parametry** - Rychlost losování, délka kola, automatické zastavení a další
 
-*Poznámka: Předgenerované odpovědi jsou momentálně dostupné pouze pro českou verzi aplikace.
+*Poznámka: Předgenerované odpovědi jsou momentálně dostupné pouze pro českou a anglickou verzi aplikace.
 
 ## Kategorie
 
@@ -36,7 +36,7 @@ Hra obsahuje širokou škálu kategorií:
 
 ### Klávesové zkratky
 - **Mezerník / Enter / Num Enter** - Start/Stop losování
-- **H** - Zobrazení správné odpovědi (pouze po skončení kola, dostupné jen v české verzi)
+- **H** - Zobrazení správné odpovědi (pouze po skončení kola, dostupné jen v české a anglické verzi)
 - **Šipka doleva** - Přičtení bodů týmu 1 (červený)
 - **Šipka doprava** - Přičtení bodů týmu 2 (modrý)
 
@@ -55,7 +55,7 @@ Hra obsahuje širokou škálu kategorií:
 2. **Zpomalení** - Po stisknutí Stop se losování postupně zpomaluje
 3. **Finalizace** - Po zastavení se zobrazí vylosované písmeno a kategorie
 4. **Herní kolo** - Spustí se časovač (pokud je aktivní) pro vymýšlení odpovědi
-5. **Zobrazení odpovědi** - Po skončení kola lze zobrazit příkladnou správnou odpověď (pouze v české verzi)
+5. **Zobrazení odpovědi** - Po skončení kola lze zobrazit příkladnou správnou odpověď (pouze v české a anglické verzi)
 6. **Počítání bodů** - Po skončení losování/kola lze přičíst body týmům
 
 ### Systém skóre
@@ -89,5 +89,5 @@ Všechna nastavení včetně skóre a jazyka se ukládají lokálně a přetrvá
 - **Claude Code** - AI asistent pro vibecoding
 - **ChatGPT** - Odpovědi byly předgenerované pomocí AI (Model: ChatGPT 5 mini)
 - **Zvuky** - [Pixabay](https://pixabay.com/)
-- **Písma**: [Caveat Brush](https://fonts.google.com/specimen/Caveat+Brush) a [Titan One](https://fonts.google.com/specimen/Titan+One)
-- **Ikony**: [Phosphoricons](https://phosphoricons.com/)
+- **Písma** - [Caveat Brush](https://fonts.google.com/specimen/Caveat+Brush) a [Titan One](https://fonts.google.com/specimen/Titan+One)
+- **Ikony** - [Phosphoricons](https://phosphoricons.com/)

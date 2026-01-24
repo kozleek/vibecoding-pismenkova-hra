@@ -83,6 +83,7 @@ UI_SETTINGS_AUTOSTOP,Automatické zastavení losování,Auto-stop Drawing,Arrêt
 UI_SETTINGS_POINTS,Zobrazovat body,Show Points,Afficher les points,Mostrar puntos
 UI_SETTINGS_ROUND,Zobrazovat odpočet kola,Show Round Timer,Afficher le compte à rebours,Mostrar temporizador de ronda
 UI_SETTINGS_NO_REPEAT,Bez opakování kombinací,No Repeat Combinations,Sans répétition des combinaisons,Sin repetición de combinaciones
+UI_SETTINGS_ROUND_TIME,Délka odpočtu kola (sec.),Round time (sec.),Temps du tour (sec.),Tiempo de ronda (seg.)
 UI_SETTINGS_LANGUAGE,Jazyk / Language,Language / Jazyk,Langue / Language,Idioma / Language
 UI_SETTINGS_RESET_SCORE,Vynulovat bodování,Reset Score,Réinitialiser le score,Reiniciar puntuación
 UI_SETTINGS_CLOSE,Zavřít,Close,Fermer,Cerrar

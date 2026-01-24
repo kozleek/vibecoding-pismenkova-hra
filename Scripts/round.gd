@@ -19,13 +19,13 @@ signal signal_round_finished
 var remaining_time: int = 0
 
 func _ready() -> void:
-	# Validace nastavení - round_wait_time by měla být kladná
-	if Settings.round_wait_time <= 0:
-		push_warning("Round wait time is invalid: %s. Using default 30s." % Settings.round_wait_time)
+	# Validace nastavení - round_time by měla být kladná
+	if Settings.round_time <= 0:
+		push_warning("Round wait time is invalid: %s. Using default 30s." % Settings.round_time)
 		timer_round.wait_time = 30.0
 	else:
 		# Nastavení délky kola z globálního nastavení
-		timer_round.wait_time = Settings.round_wait_time
+		timer_round.wait_time = Settings.round_time
 
 	# Inicializace zbývajícího času a UI
 	remaining_time = int(timer_round.wait_time)
@@ -48,7 +48,7 @@ func start() -> void:
 	progress_bar.value = 0.0
 
 	# Reset zbývajícího času podle aktuálního nastavení
-	remaining_time = int(Settings.round_wait_time)
+	remaining_time = int(Settings.round_time)
 	label.text = str(remaining_time) + ' ' + tr("UI_SEC")
 
 	# Zobrazení panelu a spuštění časovačů

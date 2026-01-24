@@ -6,6 +6,9 @@ extends PanelContainer
 @onready var check_points: CheckButton = $CenterContainer/Panel/MarginContainer/VBoxContainer/SettingsContainer/CheckPoints
 @onready var check_round: CheckButton = $CenterContainer/Panel/MarginContainer/VBoxContainer/SettingsContainer/CheckRound
 @onready var check_no_repeat: CheckButton = $CenterContainer/Panel/MarginContainer/VBoxContainer/SettingsContainer/CheckNoRepeat
+@onready var round_time_container: HBoxContainer = $CenterContainer/Panel/MarginContainer/VBoxContainer/SettingsContainer/MarginContainer/RoundTimeContainer
+@onready var round_time_label: Label = $CenterContainer/Panel/MarginContainer/VBoxContainer/SettingsContainer/MarginContainer/RoundTimeContainer/RoundTimeLabel
+@onready var round_time: LineEdit = $CenterContainer/Panel/MarginContainer/VBoxContainer/SettingsContainer/MarginContainer/RoundTimeContainer/RoundTime
 
 # Odkazy na tlačítka pro výběr jazyka
 @onready var button_language_cs: Button = $CenterContainer/Panel/MarginContainer/VBoxContainer/LanguageContainer/ButtonLanguageCS
@@ -37,6 +40,7 @@ func _refresh_ui_texts() -> void:
 	check_points.text = tr("UI_SETTINGS_POINTS")
 	check_round.text = tr("UI_SETTINGS_ROUND")
 	check_no_repeat.text = tr("UI_SETTINGS_NO_REPEAT")
+	round_time_label.text = tr("UI_SETTINGS_ROUND_TIME")
 
 	# Nastavení textu jazykových tlačítek
 	button_language_cs.text = tr("UI_LANG_CZECH")
@@ -63,6 +67,12 @@ func _sync_ui_with_settings() -> void:
 	check_points.set_pressed_no_signal(Settings.is_points_visible)
 	check_round.set_pressed_no_signal(Settings.is_round_enabled)
 	check_no_repeat.set_pressed_no_signal(Settings.is_no_repeat_enabled)
+
+	# Nastavení hodnoty časového limitu kola
+	round_time.text = str(Settings.round_time)
+
+	# Zobrazení/skrytí nastavení času kola podle stavu check_round
+	round_time_container.visible = Settings.is_round_enabled
 
 # Otevře dialog s nastavením
 # Synchronizuje UI s aktuálním stavem a zobrazí modal
@@ -124,14 +134,39 @@ func _on_check_points_toggled(toggled_on: bool) -> void:
 
 
 # Callback pro změnu zapnutí/vypnutí kol
+# Také zobrazí/skryje nastavení času kola
 func _on_check_round_toggled(toggled_on: bool) -> void:
 	Settings.is_round_enabled = toggled_on
 	_save_setting_change()
+
+	# Zobrazení/skrytí nastavení času kola
+	round_time_container.visible = toggled_on
 
 # Callback pro změnu herního módu "Bez opakování"
 func _on_check_no_repeat_toggled(toggled_on: bool) -> void:
 	Settings.is_no_repeat_enabled = toggled_on
 	_save_setting_change()
+
+# Helper funkce pro validaci a uložení času kola
+# Validuje vstup a ukládá pouze platné celé číselné hodnoty (int)
+func _validate_and_save_round_time() -> void:
+	# Validace vstupu - převod na int
+	var time_value = round_time.text.to_int()
+
+	# Kontrola rozumného rozsahu (1-999 sekund)
+	if time_value < 1:
+		time_value = 1
+		push_warning("[ModalSettings] Minimální čas kola je 1 sekunda")
+	elif time_value > 999:
+		time_value = 999
+		push_warning("[ModalSettings] Maximální čas kola je 999 sekund")
+
+	# Pokud se hodnota změnila, uložíme ji
+	if Settings.round_time != time_value:
+		Settings.round_time = time_value
+		round_time.text = str(time_value)
+		_save_setting_change()
+		print("[ModalSettings] Čas kola změněn na: %d sekund" % time_value)
 
 # ========================
 # Callback funkce pro jazykové tlačítka
@@ -218,6 +253,9 @@ func _on_button_close_pressed() -> void:
 # Zavře dialog s nastavením
 # Pokud došlo ke změně nastavení, reloadne celou scénu
 func _close() -> void:
+	# Před zavřením validujeme a uložíme čas kola
+	_validate_and_save_round_time()
+
 	hide()
 	get_tree().paused = false
 

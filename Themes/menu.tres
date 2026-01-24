@@ -1,6 +1,18 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://ctgkegabwu8l1"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://ctgkegabwu8l1"]
 
 [ext_resource type="FontFile" uid="uid://ovdywd05xpyl" path="res://Assets/Fonts/CaveatBrush-Regular.ttf" id="1_f4c5l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f4c5l"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.8156863, 0.54901963, 0.32941177, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [resource]
 CheckButton/colors/button_checked_color = Color(0.4909762, 0.84907657, 0.18066987, 1)
@@ -12,3 +24,12 @@ CheckButton/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 CheckButton/colors/font_pressed_color = Color(0, 0, 0, 1)
 CheckButton/font_sizes/font_size = 32
 CheckButton/fonts/font = ExtResource("1_f4c5l")
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_f4c5l")
+LineEdit/colors/caret_color = Color(0.8156863, 0.54901963, 0.32941177, 1)
+LineEdit/colors/font_color = Color(0.8156863, 0.54901963, 0.32941177, 1)
+LineEdit/colors/selection_color = Color(0.5, 0.5, 0.5, 1)
+LineEdit/font_sizes/font_size = 32
+LineEdit/fonts/font = ExtResource("1_f4c5l")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_f4c5l")
